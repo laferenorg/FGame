@@ -113,22 +113,11 @@ struct _fgame_event_ {
 
 typedef struct _fgame_event_ FGameEvent;
 
-/* Class For FGameManage */
-class _fgame_manage_ {
-public:
-	static void Quit();                         /* Quit Application function         */
-	static Uint32 FG_GetTicks();                /* Get Ticks function                */
-	static Uint64 FG_GetPerformanceFrequency(); /* Get Performace Frequency function */
-	static Uint64 FG_GetPerformanceCounter();   /* Get Performace Counter function   */
-	static void FG_Delay(float fgame_delay);    /* Delay Application function        */
-};
-
-typedef class _fgame_manage_ FGameManage;
-
 /* Class For FGameRun */
 class _fgame_run_ {
 public:
-	static void run(void(*callback_fgame)(FGameEvent&), float FPS); /* Run function */
+	static void run(void(*handleEvent_fgame)(FGameEvent&),
+					void(*callback_fgame)(), float FPS); /* Run function */
 };
 
 typedef class _fgame_run_ FGameRun;
@@ -174,6 +163,20 @@ public:
 };
 
 typedef class _fgame_image_m_ FGameImageM;
+
+/* Class For FGameManage */
+class _fgame_manage_ {
+public:
+	static void Quit();                                  /* Quit Application function         */
+	static Uint32 FG_GetTicks();                         /* Get Ticks function                */
+	static Uint64 FG_GetPerformanceFrequency();          /* Get Performace Frequency function */
+	static Uint64 FG_GetPerformanceCounter();            /* Get Performace Counter function   */
+	static void FG_Delay(float fgame_delay);             /* Delay Application function        */
+	static bool spritecollide(FGameRect& fgame_sprite1,
+							  FGameRect& fgame_sprite2); /* Sprite Collider function          */
+};
+
+typedef class _fgame_manage_ FGameManage;
 
 #ifdef _WIN32
 	}

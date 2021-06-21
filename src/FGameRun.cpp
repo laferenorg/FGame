@@ -15,12 +15,14 @@ extern SDL_Renderer *_fgame_renderer_global_;
 extern bool          _fgame_have_error_global_;
 extern bool          _fgame_have_init_global_;
 bool                 _fgame_run_program_ = false;
+FGameEvent           _fgame_event_call_;
+SDL_Event            _fgame_event_;
 
 /* Function run from class FGameRun */
-void _fgame_run_::run(void(*callback_fgame)(FGameEvent&), float FPS) {
+void _fgame_run_::run(void(*handleEvent_fgame)(FGameEvent&),
+					  void(*callback_fgame)(), float FPS) {
 	/* Variable setup */
-	Uint32     start;
-	FGameEvent event_fgame; 
+	Uint32 start;
 
 	/* Check and Set Run Program Variable */
 	if(!_fgame_have_error_global_ && _fgame_have_init_global_) {
@@ -33,19 +35,25 @@ void _fgame_run_::run(void(*callback_fgame)(FGameEvent&), float FPS) {
 		start = FGameManage::FG_GetTicks();
 
 		/* Start handle event */
-		SDL_Event event;
-	    SDL_PollEvent(&event);
+	    SDL_PollEvent(&_fgame_event_);
 
-	    /* Setup variable event fgame */
-	    event_fgame.type = event.type;
-	    event_fgame.key  = event.key.keysym.sym;
+	    /* Event Setup */
+	    _fgame_event_call_.type = _fgame_event_.type;
+	    _fgame_event_call_.key  = _fgame_event_.key.keysym.sym;
+
+	    /* Handle Event */
+	    switch(_fgame_event_.type) {
+	    	case SDL_QUIT: {
+	    		FGameManage::Quit();
+	    	}
+	    	break;
+	    }
+	    handleEvent_fgame(_fgame_event_call_);
 
 	    /* Start handle render */
 	    SDL_RenderClear(_fgame_renderer_global_);
-
 	    /* Run Call Back */
-	    callback_fgame(event_fgame);
-
+	    callback_fgame();
 	    /* End handle render */
 	    SDL_RenderPresent(_fgame_renderer_global_);
 
