@@ -102,7 +102,7 @@ void _fgame_::set_caption(std::string fgame_title) {
 }
 
 /* Function Set Background Color From Class FGame */
-void _fgame_::fill(Color4 fgame_color) {
+void _fgame_::fill(FGameColor fgame_color) {
 	/* Check this have error */
 	if(_fgame_have_init_global_ == false) {
 		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;

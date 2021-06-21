@@ -37,3 +37,19 @@ float _fgame_rect_::get_centery() {
 	/* Return x center */
 	return (this->y + (this->height / 2));
 }
+
+/* Function Set Size from class FGameRect */
+void _fgame_rect_::set_size(float fgame_width,
+			  				float fgame_height) {
+	/* Setup Data */
+	this->width  = fgame_width;
+	this->height = fgame_height;
+}
+
+/* Function Set Position from class FGameRect */
+void _fgame_rect_::set_position(float fgame_x,
+							    float fgame_y) {
+	/* Setup Data */
+	this->x = fgame_x;
+	this->y = fgame_y;
+}

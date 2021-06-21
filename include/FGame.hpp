@@ -103,7 +103,7 @@ typedef enum _fgame_key_ FGameKey;
 /* Color 4: RED GREEN BLUE ALPHA */
 typedef struct {
 	unsigned int R, G, B, A;
-} Color4;
+} FGameColor;
 
 /* Struct event for FGameEvent */
 struct _fgame_event_ {
@@ -129,7 +129,7 @@ public:
 	static void init(Uint32 fgame_flags);                        /* Init Function From This Class                 */
 	static void set_size(float fgame_width, float fgame_height); /* Set Mode Function From This Class             */
 	static void set_caption(std::string fgame_title);            /* Set Title Function From This Class            */
-	static void fill(Color4 fgame_color);                        /* Set background color function from this class */
+	static void fill(FGameColor fgame_color);                    /* Set background color function from this class */
 };
 
 typedef class _fgame_ FGame;
@@ -142,6 +142,11 @@ public:
 public:
 	float get_centerx(); /* Get center x function */
 	float get_centery(); /* Get center y function */
+public:
+	void set_size(float fgame_width,
+				  float fgame_height); /* Set Size Function     */
+	void set_position(float fgame_x,
+					  float fgame_y);  /* Set Position Function */
 };
 
 typedef class _fgame_rect_ FGameRect;
@@ -177,6 +182,20 @@ public:
 };
 
 typedef class _fgame_manage_ FGameManage;
+
+/* Class For FGameDraw */
+class _fgame_draw_ {
+public:
+	static void line(FGameColor fgame_color,
+					 float fgame_x1, float fgame_y1,
+					 float fgame_x2, float fgame_y2);  /* Draw line function */
+	static void rectFill(FGameColor fgame_color,
+						 FGameRect& fgame_rect);       /* Draw Rect Fill     */
+	static void rect(FGameColor fgame_color,
+				     FGameRect& fgame_rect);           /* Draw Rect          */
+};
+
+typedef class _fgame_draw_ FGameDraw;
 
 #ifdef _WIN32
 	}

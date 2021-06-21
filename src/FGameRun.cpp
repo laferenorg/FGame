@@ -32,6 +32,7 @@
 /* Global Variable Of This Project */
 /* Section For Variable Of SDL2 */
 extern SDL_Renderer *_fgame_renderer_global_;
+extern SDL_Window   *_fgame_window_global_;
 
 /* Section For Checking */
 extern bool          _fgame_have_error_global_;
@@ -84,4 +85,8 @@ void _fgame_run_::run(void(*handleEvent_fgame)(FGameEvent&),
 			FGameManage::FG_Delay(1000 / FPS - (FGameManage::FG_GetTicks() - start));
 		}
 	}
+	
+	/* Destroy */
+	SDL_DestroyRenderer(_fgame_renderer_global_);
+	SDL_DestroyWindow(_fgame_window_global_);
 }
