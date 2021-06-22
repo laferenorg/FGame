@@ -10,11 +10,11 @@ For now this project is still under development and still only available on the 
 In the future, this project for the Windows platform will use Visual Studio C++.
 
 ## Platform
-The platforms that can be used at this time are below the following table.
-|  Version  |          Windows       |        Linux x32       |        Linux x64       |
-|-----------|------------------------|------------------------|------------------------|
-|  V1.0.0   |           :x:          |   :white_check_mark:   |            :x:         |
-|  V1.1.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
+  - The platforms that can be used at this time are below the following table.
+    |  Version  |          Windows       |        Linux x32       |        Linux x64       |
+    |-----------|------------------------|------------------------|------------------------|
+    |  V1.0.0   |           :x:          |   :white_check_mark:   |            :x:         |
+    |  V1.1.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
 
 ## Install Dependencis
 - ### Ubuntu
