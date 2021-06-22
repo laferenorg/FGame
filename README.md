@@ -276,3 +276,76 @@ And this is arguably very easy.
     ```cpp
       void rect(FGameColor fgame_color, FGameRect& fgame_rect)
     ```
+  - ### `Example`
+    Draw square:
+    ```cpp
+      FGameRect square;
+      
+      int main(int argc, const char* argv[]) {
+        /* Setup */
+        FGameColor white = { 255, 255, 255, 0 };
+        FGame::init(FG_WINDOW_RESIZABLE);
+        FGame::set_size(800, 800 * 0.8);
+        FGame::set_caption("FGame Test");
+
+        /* Setup Square */
+        square.x = 0;
+        square.y = 0;
+        square.width = 50;
+        square.height = 50;
+
+        FGameRun::run([](FGameEvent& event) -> void {
+          /* Write code here */
+        },
+        []() -> void {
+          FGame::fill(white);
+          FGameDraw::rectFill({ 0, 0, 0, 0 }, square);
+        }, 60);
+        
+        return 0;
+      }
+    ```
+- ## Manage
+  You don't need to declare the class.
+  You can only call functions from that class.
+  - ### `Quit`
+    This function for quit.
+    And the parameters of this function are:
+    ```cpp
+      void Quit()
+    ```
+  - ### `FG_GetTicks`
+    This function for get ticks.
+    And the parameters of this function are:
+    ```cpp
+      Uint32 FG_GetTicks()
+    ```
+  - ### `FG_GetPerformanceFrequency`
+    This function for get performace frequency.
+    And the parameters of this function are:
+    ```cpp
+      Uint64 FG_GetPerformanceFrequency()
+    ```
+  - ### `FG_GetPerformanceCounter`
+    This function for get performance counter.
+    And the parameters of this function are:
+    ```cpp
+      Uint64 FG_GetPerformanceCounter()
+    ```
+  - ### `FG_Delay`
+    This function for Delay.
+    And the parameters of this function are:
+    ```cpp
+      void FG_Delay(float fgame_delay)
+    ```
+  - ### `spritecollide`
+    This function for Sprite Collide.
+    And the parameters of this function are:
+    ```cpp
+      bool spritecollide(FGameRect& fgame_sprite1, FGameRect& fgame_sprite2)
+    ```
+  - ### `Example`
+    ```cpp
+      std::cout << FGameManage::FG_GetTicks() << std::endl;
+      FGameManage::FG_Delay(100);
+    ```
