@@ -14,7 +14,6 @@ The platforms that can be used at this time are below the following table.
 |  Version  |          Windows       |        Linux x32       |        Linux x64       |
 |-----------|------------------------|------------------------|------------------------|
 |  V1.0.0   |           :x:          |   :white_check_mark:   |            :x:         |
-|  V1.1.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
 
 ## Documentation
 There are several conveniences when using this framework.
