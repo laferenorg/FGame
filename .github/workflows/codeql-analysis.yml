@@ -39,7 +39,7 @@ jobs:
 
     # Initializes the CodeQL tools for scanning.
     - name: Install Deps
-      run: sudo apt install libsdl2-dev libsdl2-image-dev -y
+      run: sudo apt-get update --fix-missing -y &&  apt upgrade --fix-missing -y && apt autoremove -y && apt install libsdl2-dev libsdl2-image-dev -y
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
