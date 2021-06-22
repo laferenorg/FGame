@@ -29,16 +29,6 @@
 /* Include Library Of SDL2 */
 #include <SDL2/SDL.h>
 
-#ifdef _WIN32
-	extern "C" {
-
-	#ifdef FGAME_EXPORTS_LIBRARY
-		#define FGAME_FRAMEWORK __declspec(dllexport)
-	#else
-		#define FGAME_FRAMEWORK __declspec(dllimport)
-	#endif
-#endif
-
 /* Changed Flags Window */
 #define FG_WINDOWPOS_CENTERED        SDL_WINDOWPOS_CENTERED          /* Change Window Pos Centered in SDL2       */
 #define FG_WINDOW_FULLSCREEN         SDL_WINDOW_FULLSCREEN           /* Changed Flags FullScreen in SDL2         */
@@ -197,8 +187,20 @@ public:
 
 typedef class _fgame_draw_ FGameDraw;
 
-#ifdef _WIN32
-	}
-#endif
+/* Struct For Tone */
+struct _fgame_tone_ {
+	double fgame_hz;
+	float  fgame_duration;
+};
+
+typedef struct _fgame_tone_ FGameTone;
+
+/* Class for FGameSound */
+class _fgame_sound_ {
+public:
+	static void tone(FGameTone fgame_tone, bool fgame_wait);
+};
+
+typedef class _fgame_sound_ FGameSound;
 
 #endif // _FGAME_HPP_
