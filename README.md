@@ -163,6 +163,7 @@ And this is arguably very easy.
       FGameImage imagePlayer1;
     ...
   ```
+  
 - ## FGame Class
   You don't need to declare the class.
   You can only call functions from that class.
@@ -200,4 +201,78 @@ And this is arguably very easy.
       FGame::set_size(800, 800 * 0.8);
       FGame::set_caption("FGame Test");
       FGame::fill(white); /* Or FGame::fill({ 255, 255, 255, 0 });  */
+    ```
+- ## FGameRun Class
+  You don't need to declare the class.
+  You can only call functions from that class.
+  - ### `run`
+    This function is used for run the looping.
+    And those two paramters of this function.
+    And one float parameter for FPS.
+    And the parameters of this function are:
+    ```cpp
+      run(void(*handleEvent_fgame)(FGameEvent&), void(*callback_fgame)(), float FPS)
+    ```
+  - ### `Example`
+    ```cpp
+      FGameColor white = { 255, 255, 255, 0 };
+    
+      FGame::init(FG_WINDOW_RESIZABLE);
+      FGame::set_size(800, 800 * 0.8);
+      FGame::set_caption("FGame Test");
+      
+      FGameRun::run([](FGameEvent& event) -> void {
+        /* Write code here */
+      },
+      []() -> void {
+        FGame::fill(white);
+      }, 60);
+    ```
+- ## Event
+  - ### `Variable`
+    Variable event, to provide data as a parameter and used for get data event.
+    As an example:
+    ```cpp
+      ...
+        FGameEvent event;
+      ...
+    ```
+  - ### `Example`
+    ```cpp
+      FGameRun::run([](FGameEvent& event) -> void {
+        /* Handle Events */
+        switch(event.type) {
+          case FG_KEYDOWN: {
+            switch(event.key) {
+              case FG_D: {
+                std::cout << "You Press Key D" << std::endl;
+              }
+              break;
+            }
+          }
+          break;
+        }
+      },
+      []() -> void { }, 60);
+    ```
+- ## Draw
+  You don't need to declare the class.
+  You can only call functions from that class.
+  - ### `line`
+    This function used for draw line.
+    And the parameters of this function are:
+    ```cpp
+      void line(FGameColor fgame_color, float fgame_x1, float fgame_y1, float fgame_x2, float fgame_y2)
+    ```
+  - ### `rectFill`
+    This function used for draw rectangle of variable but this filled.
+    And the parameters of this function are:
+    ```cpp
+      void rectFill(FGameColor fgame_color, FGameRect& fgame_rect)
+    ```
+  - ### `rect`
+    This function used for draw rect.
+    And the parameters of this function are:
+    ```cpp
+      void rect(FGameColor fgame_color, FGameRect& fgame_rect)
     ```
