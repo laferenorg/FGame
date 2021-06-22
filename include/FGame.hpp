@@ -85,7 +85,10 @@ enum _fgame_key_ {
 
 	/* Event UP, DOWN, RIGHT, LEFT */
 	FG_UP = SDLK_UP, FG_RIGHT = SDLK_RIGHT,
-	FG_LEFT = SDLK_LEFT, FG_DOWN = SDLK_DOWN
+	FG_LEFT = SDLK_LEFT, FG_DOWN = SDLK_DOWN,
+
+	/* Event Space */
+	FG_SPACE = SDLK_SPACE
 };
 
 typedef enum _fgame_key_ FGameKey;
@@ -198,7 +201,8 @@ typedef struct _fgame_tone_ FGameTone;
 /* Class for FGameSound */
 class _fgame_sound_ {
 public:
-	static void tone(FGameTone fgame_tone, bool fgame_wait);
+	static void tone(FGameTone fgame_tone);
+	static void wav(std::string fgame_path, int fgame_volume = 128);
 };
 
 typedef class _fgame_sound_ FGameSound;

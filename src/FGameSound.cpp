@@ -24,10 +24,12 @@
 #include <iostream>
 #include <queue>
 #include <cmath>
+#include <fstream>
 
 /* Library From SDL2 */
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_audio.h>
+#include <SDL2/SDL_mixer.h>
 
 /* header */
 #include <FGame.hpp>
@@ -151,7 +153,7 @@ void audio_callback(void *_beeper, Uint8 *_stream, int _length)
 fgame_beeper fgame_global_beep_;
 
 /* Function play tone from class FGameSound */
-void _fgame_sound_::tone(FGameTone fgame_tone, bool fgame_wait) {
+void _fgame_sound_::tone(FGameTone fgame_tone) {
 	/* Check it's has already in init */
 	if(!_fgame_have_init_global_) {
 		std::cout << "[" << &_fgame_have_init_global_ << "]: Can't play sound" << std::endl;
@@ -162,5 +164,61 @@ void _fgame_sound_::tone(FGameTone fgame_tone, bool fgame_wait) {
 	fgame_global_beep_.beep(fgame_tone.fgame_hz, fgame_tone.fgame_duration);
 
 	/* Check if the variable boolean true */
-	if(fgame_wait) fgame_global_beep_.wait();
+    fgame_global_beep_.wait();
+}
+
+/* Function WAV tone from class FGameSound */
+void _fgame_sound_::wav(std::string fgame_path, int fgame_volume) {
+    /* Check boolean variable */
+    bool exist_sound = true;
+
+    /* Check exist file */
+    {
+        std::fstream _fgame_sound_check;
+        _fgame_sound_check.open(fgame_path, std::ios::in | std::ios::binary);
+        if(!_fgame_sound_check.is_open()) {
+            exist_sound = false;
+            std::cout << "[" << &_fgame_sound_check << "]: Can't find wav" << std::endl;
+            exit(-1);
+        }
+        _fgame_sound_check.close();
+    }
+
+    if(exist_sound) {
+        /* Setup Variable */
+        Uint32 points = 0;
+        Uint32 frames = 0;
+        int    freq   = 0;
+        Uint16 fmt    = 0;
+        int    chans  = 0;
+
+        Mix_Chunk* fgame_sound = Mix_LoadWAV(fgame_path.c_str());
+
+        if(fgame_sound == NULL) {
+            std::cout << "[" << fgame_sound << "]: Can't play wav" << std::endl;
+            exit(-1);
+        }
+
+        Mix_VolumeChunk(fgame_sound, fgame_volume);
+
+        /* Play */
+        if(Mix_PlayChannel(-1, fgame_sound, 0) == -1){
+            std::cout << "[" << fgame_sound << "]: Can't play wav (";
+            std::cout << Mix_GetError() << ")" << std::endl;
+            exit(-1);
+        }
+
+        if(!Mix_QuerySpec(&freq, &fmt, &chans)) {
+            std::cout << "[" << fgame_sound << "]: Can't play wav" << std::endl;
+            exit(-1);
+        }
+
+        points = (fgame_sound->alen / ((fmt & 0xFF) / 8));
+        frames = (points / chans);
+
+        SDL_Delay(((frames * 1000) / freq) * 0.35);
+
+        /* Free */
+        Mix_FreeChunk(fgame_sound);
+    }
 }
