@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 # Settings
-CCOPILER       = clang++-10
+CCOPILER       = g++
 
 # Flags
 COPTIMIZE      = -O2 -g -Ofast -Os -Og
