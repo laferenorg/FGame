@@ -22,6 +22,10 @@ The platforms that can be used at this time are below the following table.
 $ apt install libsdl2-dev libsdl2-image-dev
 ```
 
+### Windows
+- Download SDL2: [Visual Studio C++ x64/x32](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip)
+- Download SDL2 Image: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip)
+
 ## Documentation
 There are several conveniences when using this framework.
 And this is arguably very easy.
