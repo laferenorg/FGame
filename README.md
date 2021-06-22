@@ -15,6 +15,12 @@ The platforms that can be used at this time are below the following table.
 |---------|---------|--------------------|
 |  V1.0   |   :x:   | :white_check_mark: |
 
+## Install Dependencis
+### Ubuntu
+```bash
+$ apt install libsdl2-dev libsdl2-image-dev
+```
+
 ## Documentation
 There are several conveniences when using this framework.
 And this is arguably very easy.
