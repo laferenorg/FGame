@@ -17,16 +17,21 @@ The platforms that can be used at this time are below the following table.
 |  V1.1.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
 
 ## Install Dependencis
-### Ubuntu
+- ### Ubuntu
 ```bash
 $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev -y
 ```
 
-### Windows
-- Download SDL2: [Visual Studio C++ x64/x32](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip)
-- Download SDL2 Image: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip)
-- Download SDL2 Mixer: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip)
+- ### Windows
+  - Download SDL2: [Visual Studio C++ x64/x32](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip)
+  - Download SDL2 Image: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip)
+  - Download SDL2 Mixer: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip)
 
+## Compile
+- ### Ubuntu
+  Flags For Compile You're code: `-lSDL2 -lSDL2_image -lSDL2_mixer`
+- ### Windows
+  Linking library: `SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib`
 ## Documentation
 There are several conveniences when using this framework.
 And this is arguably very easy.
