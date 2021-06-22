@@ -317,6 +317,29 @@ And this is arguably very easy.
         return 0;
       }
     ```
+- ## Tone
+  Tone variable, used for parameter data.
+  Example using:
+  ```cpp
+    ...
+      FGameTone tone1 = { 440, 100 };
+    ...
+  ```
+- ## Sound
+  You don't need to declare the class.
+  You can only call functions from that class.
+  - ### `tone`
+    This function used for play tone.
+    And the parameters of this function are:
+    ```cpp
+      void tone(FGameTone fgame_tone, bool fgame_wait)
+    ```
+  - ### `Example`
+    ```cpp
+      FGameTone tone1 = { 440, 100 };
+      
+      FGameSound::tone(tone1, true); /* Or FGameSound::tone({ 440, 100 }, true); */
+    ```
 - ## Manage
   You don't need to declare the class.
   You can only call functions from that class.
