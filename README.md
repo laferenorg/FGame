@@ -262,7 +262,8 @@ And this is arguably very easy.
     This function used for draw line.
     And the parameters of this function are:
     ```cpp
-      void line(FGameColor fgame_color, float fgame_x1, float fgame_y1, float fgame_x2, float fgame_y2)
+      void line(FGameColor fgame_color, float fgame_x1, float fgame_y1,
+                float fgame_x2, float fgame_y2)
     ```
   - ### `rectFill`
     This function used for draw rectangle of variable but this filled.
@@ -349,3 +350,148 @@ And this is arguably very easy.
       std::cout << FGameManage::FG_GetTicks() << std::endl;
       FGameManage::FG_Delay(100);
     ```
+- ## Image Manage
+  You don't need to declare the class.
+  You can only call functions from that class.
+  - ### `load`
+    This function for load image into variable `FGameImage`.
+    And the parameters of this function are:
+    ```cpp
+     FGameImage load(std::string fgame_image_path)
+    ```
+  - ### `Render`
+    This function for render image.
+    And the parameters of this function are:
+    ```cpp
+      void Render(FGameImage& fgame_image, FGameRect& fgame_rect)
+    ```
+  - ### `RenderFlip`
+    This function for render image and flip into left.
+    And the parameters of this function are:
+    ```cpp
+      void RenderFlip(FGameImage& fgame_image, FGameRect& fgame_rect, bool fgame_left);
+    ```
+  - ### `Example`
+    ```cpp
+      /* Setup */
+      bool flip;
+      int velacotyX;
+      FGameImage player;
+      FGameRect playerRect;
+      
+      void handleEvents(FGameEvent& event) {
+        switch(event.type) {
+          case FG_KEYDOWN: {
+            switch(event.key) {
+              case FG_D: {
+                flip = false;
+                velacotyX = 1;
+              }
+              break;
+              case FG_A: {
+                flip = true;
+                velacotyX = -1;
+              }
+              break;
+            }
+          }
+          break;
+          case FG_KEYUP: {
+            switch(event.key) {
+              case FG_D: {
+                velacotyX = 0;
+              }
+              break;
+              case FG_A: {
+                velacotyX = 0;
+              }
+              break;
+            }
+          }
+          break;
+        }
+      }
+      
+      void update() {
+        playerRect.x += velacotyX * 5;
+        FGameImageM::RenderFlip(player, playerRect, flip);
+      }
+      
+      int main(int argc, const char* argv[]) {
+        /* Setup main */
+        player = FGameImageM::load("PATH");
+        
+        FGameColor white = { 255, 255, 255, 0 };
+        FGame::init(FG_WINDOW_RESIZABLE);
+        FGame::set_size(800, 800 * 0.8);
+        FGame::set_caption("FGame Test");
+
+        /* Setup Player Rect */
+        playerRect.x = 0;
+        playerRect.y = 0;
+        playerRect.width = player.width;
+        playerRect.height = player.height;
+
+        FGameRun::run(handleEvents, update, 60);
+      }
+    ```
+- ## Example
+  ```cpp
+    #include <iostream>
+    #include <FGame.hpp>
+  
+    /* Setup */
+    int velacotyX;
+    FGameRect square;
+
+    void handleEvents(FGameEvent& event) {
+      switch(event.type) {
+        case FG_KEYDOWN: {
+          switch(event.key) {
+            case FG_D: {
+              velacotyX = 1;
+            }
+            break;
+            case FG_A: {
+              velacotyX = -1;
+            }
+            break;
+          }
+        }
+        break;
+        case FG_KEYUP: {
+          switch(event.key) {
+            case FG_D: {
+              velacotyX = 0;
+            }
+            break;
+            case FG_A: {
+              velacotyX = 0;
+            }
+            break;
+          }
+        }
+        break;
+      }
+    }
+
+    void update() {
+      square.x += velacotyX * 5;
+      FGameDraw::rect({ 0, 0, 0, 0 }, square);
+    }
+
+    int main(int argc, const char* argv[]) {
+      FGameColor white = { 255, 255, 255, 0 };
+      FGame::init(FG_WINDOW_RESIZABLE);
+      FGame::set_size(800, 800 * 0.8);
+      FGame::set_caption("FGame Test");
+
+      /* Setup Player Rect */
+      square.x = 0;
+      square.y = 0;
+      square.width = 50;
+      square.height = 50;
+
+      FGameRun::run(handleEvents, update, 60);
+    }
+  ```
