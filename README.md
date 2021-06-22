@@ -136,3 +136,68 @@ And this is arguably very easy.
     ```cpp
       float get_centery();
     ```
+    ##### `example`
+    ```cpp
+       FGameRect player2;
+       
+       /* Filling Data */
+       player2.set_size(100, 100);
+       player2.set_position(0, 0);
+       
+       /* Getting Data */
+       std::cout << player2.x << std::endl;
+       std::cout << player2.y << std::endl;
+       std::cout << player2.width << std::endl;
+       std::cout << player2.height << std::endl;
+       
+       /* Getting Data Center Position */
+       std::cout << player2.get_centerx() << std::endl;
+       std::cout << player2.get_centery() << std::endl;
+    ```
+- ## Image
+  Variable image, to provide data as a parameter and as a variable to load the image.
+  To fill in the data later, you can use the function that you will read, namely `FGameImageM::load(std::string fgame_image_path)`.
+  As an example.
+  ```cpp
+    ...
+      FGameImage imagePlayer1;
+    ...
+  ```
+- ## FGame Class
+  You don't need to declare the class.
+  You can only call functions from that class.
+  - ### `init`
+    The init function is used to init with the flags `window parameter`.
+    It can only be used once and don't call it again.
+    This init parameter is:
+    ```cpp
+      void init(Uint32 fgame_flags)
+    ```
+  - ### `set_size`
+    This function is used to change the size of the window.
+    And the parameters of this function are:
+    ```cpp
+      void set_size(float fgame_width, float fgame_height)
+    ```
+  - ### `set_caption`
+    This function is used to change the title of the window.
+    And the parameters of this function are:
+    ```cpp
+      void set_caption(std::string fgame_title)
+    ```
+  - ### `fill`
+    This function is used to change the window background.
+    The parameter used by this function is `Variable color, namely FGameColor`.
+    And the parameters of this function are:
+    ```cpp
+      void fill(FGameColor fgame_color)
+    ```
+  - ### `Example`
+    ```cpp
+      FGameColor white = { 255, 255, 255, 0 };
+    
+      FGame::init(FG_WINDOW_RESIZABLE);
+      FGame::set_size(800, 800 * 0.8);
+      FGame::set_caption("FGame Test");
+      FGame::fill(white); /* Or FGame::fill({ 255, 255, 255, 0 });  */
+    ```
