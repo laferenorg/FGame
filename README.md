@@ -110,7 +110,7 @@ And this is arguably very easy.
     FGameColor white = { 255, 255, 255, 0 };
    ...
   ```
-- ## Rect
+- ### Rect
   Just like in SDL2, there is also a rectangle variable here.
   And how to use it as follows.
   ```cpp
@@ -171,7 +171,7 @@ And this is arguably very easy.
        std::cout << player2.get_centerx() << std::endl;
        std::cout << player2.get_centery() << std::endl;
     ```
-- ## Image
+- ### Image
   Variable image, to provide data as a parameter and as a variable to load the image.
   To fill in the data later, you can use the function that you will read, namely `FGameImageM::load(std::string fgame_image_path)`.
   As an example.
@@ -181,36 +181,36 @@ And this is arguably very easy.
     ...
   ```
   
-- ## FGame Class
+- ### FGame Class
   You don't need to declare the class.
   You can only call functions from that class.
-  - ### `init`
+  - #### `init`
     The init function is used to init with the flags `window parameter`.
     It can only be used once and don't call it again.
     This init parameter is:
     ```cpp
       void init(Uint32 fgame_flags)
     ```
-  - ### `set_size`
+  - #### `set_size`
     This function is used to change the size of the window.
     And the parameters of this function are:
     ```cpp
       void set_size(float fgame_width, float fgame_height)
     ```
-  - ### `set_caption`
+  - #### `set_caption`
     This function is used to change the title of the window.
     And the parameters of this function are:
     ```cpp
       void set_caption(std::string fgame_title)
     ```
-  - ### `fill`
+  - #### `fill`
     This function is used to change the window background.
     The parameter used by this function is `Variable color, namely FGameColor`.
     And the parameters of this function are:
     ```cpp
       void fill(FGameColor fgame_color)
     ```
-  - ### `Example`
+  - #### `Example`
     ```cpp
       FGameColor white = { 255, 255, 255, 0 };
     
@@ -219,10 +219,10 @@ And this is arguably very easy.
       FGame::set_caption("FGame Test");
       FGame::fill(white); /* Or FGame::fill({ 255, 255, 255, 0 });  */
     ```
-- ## FGameRun Class
+- ### FGameRun Class
   You don't need to declare the class.
   You can only call functions from that class.
-  - ### `run`
+  - #### `run`
     This function is used for run the looping.
     And those two paramters of this function.
     And one float parameter for FPS.
@@ -230,7 +230,7 @@ And this is arguably very easy.
     ```cpp
       run(void(*handleEvent_fgame)(FGameEvent&), void(*callback_fgame)(), float FPS)
     ```
-  - ### `Example`
+  - #### `Example`
     ```cpp
       FGameColor white = { 255, 255, 255, 0 };
     
@@ -245,7 +245,7 @@ And this is arguably very easy.
         FGame::fill(white);
       }, 60);
     ```
-- ## Event
+- ### Event
   - ### `Variable`
     Variable event, to provide data as a parameter and used for get data event.
     As an example:
@@ -254,7 +254,7 @@ And this is arguably very easy.
         FGameEvent event;
       ...
     ```
-  - ### `Example`
+  - #### `Example`
     ```cpp
       FGameRun::run([](FGameEvent& event) -> void {
         /* Handle Events */
@@ -272,29 +272,29 @@ And this is arguably very easy.
       },
       []() -> void { }, 60);
     ```
-- ## Draw
+- ### Draw
   You don't need to declare the class.
   You can only call functions from that class.
-  - ### `line`
+  - #### `line`
     This function used for draw line.
     And the parameters of this function are:
     ```cpp
       void line(FGameColor fgame_color, float fgame_x1, float fgame_y1,
                 float fgame_x2, float fgame_y2)
     ```
-  - ### `rectFill`
+  - #### `rectFill`
     This function used for draw rectangle of variable but this filled.
     And the parameters of this function are:
     ```cpp
       void rectFill(FGameColor fgame_color, FGameRect& fgame_rect)
     ```
-  - ### `rect`
+  - #### `rect`
     This function used for draw rect.
     And the parameters of this function are:
     ```cpp
       void rect(FGameColor fgame_color, FGameRect& fgame_rect)
     ```
-  - ### `Example`
+  - #### `Example`
     Draw square:
     ```cpp
       FGameRect square;
@@ -323,7 +323,7 @@ And this is arguably very easy.
         return 0;
       }
     ```
-- ## Tone
+- ### Tone
   Tone variable, used for parameter data.
   Example using:
   ```cpp
@@ -331,93 +331,93 @@ And this is arguably very easy.
       FGameTone tone1 = { 440, 100 };
     ...
   ```
-- ## Sound
+- ### Sound
   You don't need to declare the class.
   You can only call functions from that class.
-  - ### `tone`
+  - #### `tone`
     This function used for play tone.
     And the parameters of this function are:
     ```cpp
       void tone(FGameTone fgame_tone, bool fgame_wait)
     ```
-  - ### `wav`
+  - #### `wav`
     This function used for play wav file.
     And the parameters of this function are:
     ```cpp
       void wav(std::string fgame_path, int fgame_volume)
     ```
-  - ### `Example`
+  - #### `Example`
     ```cpp
       FGameTone tone1 = { 440, 100 };
       
       FGameSound::tone(tone1, true); /* Or FGameSound::tone({ 440, 100 }, true); */
     ```
-- ## Manage
+- ### Manage
   You don't need to declare the class.
   You can only call functions from that class.
-  - ### `Quit`
+  - #### `Quit`
     This function for quit.
     And the parameters of this function are:
     ```cpp
       void Quit()
     ```
-  - ### `FG_GetTicks`
+  - #### `FG_GetTicks`
     This function for get ticks.
     And the parameters of this function are:
     ```cpp
       Uint32 FG_GetTicks()
     ```
-  - ### `FG_GetPerformanceFrequency`
+  - #### `FG_GetPerformanceFrequency`
     This function for get performace frequency.
     And the parameters of this function are:
     ```cpp
       Uint64 FG_GetPerformanceFrequency()
     ```
-  - ### `FG_GetPerformanceCounter`
+  - #### `FG_GetPerformanceCounter`
     This function for get performance counter.
     And the parameters of this function are:
     ```cpp
       Uint64 FG_GetPerformanceCounter()
     ```
-  - ### `FG_Delay`
+  - #### `FG_Delay`
     This function for Delay.
     And the parameters of this function are:
     ```cpp
       void FG_Delay(float fgame_delay)
     ```
-  - ### `spritecollide`
+  - #### `spritecollide`
     This function for Sprite Collide.
     And the parameters of this function are:
     ```cpp
       bool spritecollide(FGameRect& fgame_sprite1, FGameRect& fgame_sprite2)
     ```
-  - ### `Example`
+  - #### `Example`
     ```cpp
       std::cout << FGameManage::FG_GetTicks() << std::endl;
       FGameManage::FG_Delay(100);
     ```
-- ## Image Manage
+- ### Image Manage
   You don't need to declare the class.
   You can only call functions from that class.
-  - ### `load`
+  - #### `load`
     This function for load image into variable `FGameImage`.
     And the parameters of this function are:
     ```cpp
      FGameImage load(std::string fgame_image_path)
     ```
-  - ### `Render`
+  - #### `Render`
     This function for render image.
     And the parameters of this function are:
     ```cpp
       void Render(FGameImage& fgame_image, FGameRect& fgame_rect)
     ```
-  - ### `RenderFlip`
+  - #### `RenderFlip`
     This function for render image and flip into left.
     And the parameters of this function are:
     ```cpp
       void RenderFlip(FGameImage& fgame_image, FGameRect& fgame_rect, bool fgame_left);
     ```
-  - ### `Example`
+  - #### `Example`
     ```cpp
       /* Setup */
       bool flip;
@@ -481,7 +481,7 @@ And this is arguably very easy.
         FGameRun::run(handleEvents, update, 60);
       }
     ```
-- ## Example
+- ### Example
   ```cpp
     #include <iostream>
     #include <FGame.hpp>
