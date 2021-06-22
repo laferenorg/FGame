@@ -11,9 +11,9 @@ In the future, this project for the Windows platform will use Visual Studio C++.
 
 ## Platform
 The platforms that can be used at this time are below the following table.
-| Version | Windows |        Linux       |
-|---------|---------|--------------------|
-|  V1.0   |   :x:   | :white_check_mark: |
+| Version | Windows |        Linux x32       |        Linux x64       |
+|---------|---------|------------------------|------------------------|
+|  V1.0   |   :x:   |   :white_check_mark:   |            :x:         |
 
 ## Documentation
 There are several conveniences when using this framework.
