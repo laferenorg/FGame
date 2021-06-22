@@ -52,7 +52,7 @@ check_obj:
 	fi
 
 compile_binary:
-	$(ARCOMPILER) rcs $(COUTPUT_BUILD)/$(COUTPUT_BIN)/$(CFINISH_OUTPUT) $(COUTPUT_BUILD)/$(COUTPUT_SRC)/*.o
+	@$(ARCOMPILER) rcs $(COUTPUT_BUILD)/$(COUTPUT_BIN)/$(CFINISH_OUTPUT) $(COUTPUT_BUILD)/$(COUTPUT_SRC)/*.o
 
 compile:
 	@for _source_ in $(CSOURCES_CPP); do \
