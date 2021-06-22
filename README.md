@@ -334,6 +334,12 @@ And this is arguably very easy.
     ```cpp
       void tone(FGameTone fgame_tone, bool fgame_wait)
     ```
+  - ### `wav`
+    This function used for play wav file.
+    And the parameters of this function are:
+    ```cpp
+      void wav(std::string fgame_path, int fgame_volume)
+    ```
   - ### `Example`
     ```cpp
       FGameTone tone1 = { 440, 100 };
