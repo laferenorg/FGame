@@ -77,3 +77,62 @@ And this is arguably very easy.
   |        | FG_X     |          |
   |        | FG_Y     |          |
   |        | FG_Z     |          |
+- ### Event Type
+  Event types can be seen below this table.
+  |         Type       | Event Type |
+  |--------------------|------------|
+  | FG_QUIT            | FG_KEYDOWN |
+  | FG_APP_TERMINATING | FG_KEYUP   |
+  | FG_APP_LOWMEMORY   |            |
+- ### Color
+  Variable color, to make the data as a parameter for later.
+  The data will be entered sequentially in the order of Red, Green, Blue, and Alpha.
+  Example Like the following.
+  ```cpp
+   ...
+    FGameColor white = { 255, 255, 255, 0 };
+   ...
+  ```
+- ## Rect
+  Just like in SDL2, there is also a rectangle variable here.
+  And how to use it as follows.
+  ```cpp
+   ...
+    FGameRect player1;
+    
+    /* Filling data */
+    player1.x = 0;
+    player1.y = 0;
+    player1.width = 100;
+    player1.height = 100;
+    
+    /* Getting data */
+    std::cout << player1.x << std::endl;
+    std::cout << player1.y << std::endl;
+    std::cout << player1.width << std::endl;
+    std::cout << player1.height << std::endl;
+   ...
+  ```
+  - #### Function
+    ##### `set_size`
+    this section to fill in the data size with the following parameters.
+    ```cpp
+      void set_size(float fgame_width, float fgame_height)
+    ```
+    ##### `set_position`
+    this section to fill in the data position with the following parameters.
+    ```cpp
+      void set_position(float fgame_x, float fgame_y)
+    ```
+    ##### `get_centerx`
+    This section gets the data center from x.
+    With the following parameters.
+    ```cpp
+      float get_centerx();
+    ```
+    ##### `get_centery`
+    This section gets the data center from y.
+    With the following parameters.
+    ```cpp
+      float get_centery();
+    ```
