@@ -21,6 +21,7 @@ And this is arguably very easy.
 
 - ### Flags
   there are several flags that are used at this time, namely in the following table.
+  It's just like plagiarizing from SDL2.
   |             Window            |         Position       |
   |-------------------------------|------------------------|
   | FG_WINDOW_FULLSCREEN          | FG_WINDOWPOS_CENTERED  |
@@ -45,3 +46,34 @@ And this is arguably very easy.
   | FG_WINDOW_UTILITY             |                        |
   | FG_WINDOW_TOOLTIP             |                        |
   | FG_WINDOW_POPUP_MENU          |                        |
+- ### Key Event
+  The keyboard events that can be used can be seen in the following table.
+  And these can only be numbers, alphabets, and arrows.
+  | Number | Alphabet | Arrows   |
+  |--------|----------|----------|
+  | FG_0   | FG_A     | FG_UP    |
+  | FG_1   | FG_B     | FG_DOWN  |
+  | FG_2   | FG_C     | FG_RIGHT |
+  | FG_3   | FG_D     | FG_LEFT  |
+  | FG_4   | FG_E     |          |
+  | FG_5   | FG_F     |          |
+  | FG_6   | FG_G     |          |
+  | FG_7   | FG_H     |          |
+  | FG_8   | FG_I     |          |
+  | FG_9   | FG_J     |          |
+  |        | FG_K     |          |
+  |        | FG_L     |          |
+  |        | FG_M     |          |
+  |        | FG_N     |          |
+  |        | FG_O     |          |
+  |        | FG_P     |          |
+  |        | FG_Q     |          |
+  |        | FG_R     |          |
+  |        | FG_S     |          |
+  |        | FG_T     |          |
+  |        | FG_U     |          |
+  |        | FG_V     |          |
+  |        | FG_W     |          |
+  |        | FG_X     |          |
+  |        | FG_Y     |          |
+  |        | FG_Z     |          |
