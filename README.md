@@ -520,6 +520,18 @@ And this is arguably very easy.
         FGameRun::run(handleEvents, update, 60);
       }
     ```
+- ### Get Version
+  Support For Get Version in this table.
+  - #### Version Support
+    |      Version       |          Support       |
+    |--------------------|------------------------|
+    |  V1.0.0 - V1.1.1   |           :x:          |
+    |     > V1.2.1       |   :white_check_mark:   |
+  - #### How To Get
+    How to get version you must using `FG_VERSION`
+    ```cpp
+      #define FG_VERSION "Version Of FGame"
+    ```
 - ### Example
   ```cpp
     #include <iostream>
