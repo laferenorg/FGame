@@ -349,16 +349,24 @@ And this is arguably very easy.
       void tone(FGameTone fgame_tone)
     ```
   - #### `wav`
-    This function used for Load wav variable.
+    This function used for Load wav variable and play wav.
     And the parameters of this function are:
     ```cpp
+      /* Load */
       FGameClassWAV* wav(std::string fgame_path, int fgame_volume = 128)
+      
+      /* play */
+      void play();
     ```
   - #### `music`
-    This function used for Load music variable.
+    This function used for Load music variable and play music.
     And the parameters of this function are:
     ```cpp
+      /* Load */
       FGameClassMUSIC* music(std::string fgame_path, int fgame_volume = 128)
+      
+      /* Play */
+      void play(int loops)
     ```
   - #### `Example`
     ```cpp
