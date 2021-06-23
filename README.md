@@ -15,6 +15,7 @@ In the future, this project for the Windows platform will use Visual Studio C++.
     |-----------|------------------------|------------------------|------------------------|
     |  V1.0.0   |           :x:          |   :white_check_mark:   |            :x:         |
     |  V1.1.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
+    |  V1.2.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
 
 ## Install Dependencis
 - ### Ubuntu
@@ -441,7 +442,7 @@ And this is arguably very easy.
     This function for load image into variable `FGameImage`.
     And the parameters of this function are:
     ```cpp
-     FGameImage load(std::string fgame_image_path)
+     void load(FGameImage& fgame_image, std::string fgame_image_path)
     ```
   - #### `Render`
     This function for render image.
@@ -503,7 +504,7 @@ And this is arguably very easy.
       
       int main(int argc, const char* argv[]) {
         /* Setup main */
-        player = FGameImageM::load("PATH");
+        FGameImageM::load(player, "PATH");
         
         FGameColor white = { 255, 255, 255, 0 };
         FGame::init(FG_WINDOW_RESIZABLE);
