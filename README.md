@@ -26,6 +26,9 @@ $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev -y
   - Download SDL2: [Visual Studio C++ x64/x32](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip)
   - Download SDL2 Image: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip)
   - Download SDL2 Mixer: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip)
+  
+  - #### Preprocessor
+    You mus include `SDL_MAIN_HANDLED` in preprocessor on you project;
 
 ## Compile
 - ### Ubuntu
