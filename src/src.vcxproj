@@ -155,7 +155,6 @@
     <ClCompile Include="FGameManage.cpp" />
     <ClCompile Include="FGameRect.cpp" />
     <ClCompile Include="FGameRun.cpp" />
-    <ClCompile Include="FGameSound.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

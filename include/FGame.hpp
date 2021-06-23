@@ -27,11 +27,7 @@
 #include <iostream>
 
 /* Include Library Of SDL2 */
-#ifdef _WIN32
-	#include "../dependencis/include/SDL2/SDL.h"
-#else
-	#include <SDL2/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 
 /* Include Header */
 #include "FGameSound.hpp"
@@ -153,8 +149,8 @@ typedef class _fgame_rect_ FGameRect;
 
 /* Struct For Image */
 struct _fgame_image_ {
-	std::string _fgame_path_location_;
-	float width, height;
+	SDL_Texture* image;
+	float        width, height;
 };
 
 typedef struct _fgame_image_ FGameImage;
@@ -162,9 +158,10 @@ typedef struct _fgame_image_ FGameImage;
 /* Class For FGameImageM */
 class _fgame_image_m_ {
 public:
-	static FGameImage load(std::string fgame_image_path);                                    /* Load function        */
+	static void load(FGameImage& fgame_image, std::string fgame_image_path);                                    /* Load function        */
 	static void Render(FGameImage& fgame_image, FGameRect& fgame_rect);                      /* Render function      */
 	static void RenderFlip(FGameImage& fgame_image, FGameRect& fgame_rect, bool fgame_left); /* Render Flip function */
+	static void FreeImage(FGameImage& fgame_image);
 };
 
 typedef class _fgame_image_m_ FGameImageM;
