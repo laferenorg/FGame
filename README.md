@@ -331,6 +331,14 @@ And this is arguably very easy.
       FGameTone tone1 = { 440, 100 };
     ...
   ```
+- ### WAV And MUSIC
+  WAV Variable And MUSIC Variable for load sound.
+  `Information`: this must using pointer.
+  Example using:
+  ```cpp
+    FGameClassMUSIC* music;
+    FGameClassWAV* effect;
+  ```
 - ### Sound
   You don't need to declare the class.
   You can only call functions from that class.
@@ -338,19 +346,41 @@ And this is arguably very easy.
     This function used for play tone.
     And the parameters of this function are:
     ```cpp
-      void tone(FGameTone fgame_tone, bool fgame_wait)
+      void tone(FGameTone fgame_tone)
     ```
   - #### `wav`
-    This function used for play wav file.
+    This function used for Load wav variable.
     And the parameters of this function are:
     ```cpp
-      void wav(std::string fgame_path, int fgame_volume)
+      FGameClassWAV* wav(std::string fgame_path, int fgame_volume = 128)
+    ```
+  - #### `music`
+    This function used for Load music variable.
+    And the parameters of this function are:
+    ```cpp
+      FGameClassMUSIC* music(std::string fgame_path, int fgame_volume = 128)
     ```
   - #### `Example`
     ```cpp
-      FGameTone tone1 = { 440, 100 };
+      /* Setup sound */
+      FGameClassMUSIC* music;
+      FGameClassWAV* effect;
       
-      FGameSound::tone(tone1, true); /* Or FGameSound::tone({ 440, 100 }, true); */
+      int main() {
+        FGameColor white = { 255, 255, 255, 0 };
+        FGame::init(FG_WINDOW_RESIZABLE);
+        FGame::set_size(800, 800 * 0.8);
+        FGame::set_caption("FGame Test");
+        
+        FGameTone tone1 = { 440, 100 };
+        FGameSound::tone(tone1); /* Or FGameSound::tone({ 440, 100 }); */
+        
+        music = FGameSound::music("PATH/FILE.mp3");
+        effect = FGameSound::wav("PATH/FILE.wav");
+        
+        music->play(1);
+        effect->play();
+      }
     ```
 - ### Manage
   You don't need to declare the class.
