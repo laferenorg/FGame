@@ -25,6 +25,8 @@
 
 /* Library From SDL2 */
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 
 /* header */
 #include <FGame.hpp>
@@ -63,6 +65,16 @@ void _fgame_::init(Uint32 fgame_flags = 0) {
 			_fgame_have_error_global_ = true;
 			std::cout << "[" << _fgame_renderer_global_ << "]: Can't Create Renderer" << std::endl;
 		}
+
+		/* Check the audio */
+	    if(Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096) == -1) {
+	        _fgame_have_error_global_ = true;
+	        std::cout << "[" << &_fgame_have_error_global_ << "]: Can't Open Audio (";
+	        std::cout << Mix_GetError() << ")" << std::endl;
+	    }
+
+	    /* Amount of channels (Max amount of sounds playing at the same time) */
+		Mix_AllocateChannels(32);
 	}
 
 	/* Change Init Boolean Variable */

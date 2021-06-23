@@ -22,12 +22,17 @@
 
 /* Library From C++ */
 #include <iostream>
+#include <vector>
+#include <memory>
+#include <ctime>
 
 /* Library From SDL2 */
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 
 /* header */
 #include <FGame.hpp>
+#include <FGameSound.hpp>
 
 /* Global Variable Of This Project */
 /* Section For Variable Of SDL2 */
@@ -89,4 +94,6 @@ void _fgame_run_::run(void(*handleEvent_fgame)(FGameEvent&),
 	/* Destroy */
 	SDL_DestroyRenderer(_fgame_renderer_global_);
 	SDL_DestroyWindow(_fgame_window_global_);
+	Mix_CloseAudio();
+	SDL_Quit();
 }

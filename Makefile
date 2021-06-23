@@ -22,11 +22,10 @@
 
 # Settings
 CCOPILER       = g++
+ARCOMPILER     = ar
 
 # Flags
 COPTIMIZE      = -O2 -g -Ofast -Os -Og
-CFLAGS         = -fPIC -Wall -shared -pthread \
-				 -lSDL2 -lSDL2_image
 CINCLUDE       = -I include/ -D _REENTRANT
  
 # Source
@@ -36,7 +35,7 @@ CSOURCES_CPP   := $(wildcard src/*.cpp)
 COUTPUT_SRC    = obj
 COUTPUT_BIN    = bin
 COUTPUT_BUILD  = build
-CFINISH_OUTPUT = libfgame.so
+CFINISH_OUTPUT = libfgame.a
 
 # Main
 all: check_obj compile compile_binary
@@ -53,7 +52,7 @@ check_obj:
 	fi
 
 compile_binary:
-	@$(CCOPILER) $(COUTPUT_BUILD)/$(COUTPUT_SRC)/*.o $(CFLAGS) $(COPTIMIZE) -o $(COUTPUT_BUILD)/$(COUTPUT_BIN)/$(CFINISH_OUTPUT)
+	@$(ARCOMPILER) rcs $(COUTPUT_BUILD)/$(COUTPUT_BIN)/$(CFINISH_OUTPUT) $(COUTPUT_BUILD)/$(COUTPUT_SRC)/*.o
 
 compile:
 	@for _source_ in $(CSOURCES_CPP); do \
