@@ -22,6 +22,9 @@
 
 /* Library From C++ */
 #include <iostream>
+#include <vector>
+#include <memory>
+#include <ctime>
 
 /* Library From SDL2 */
 #include <SDL2/SDL.h>
@@ -29,6 +32,7 @@
 
 /* header */
 #include <FGame.hpp>
+#include <FGameSound.hpp>
 
 /* Global Variable Of This Project */
 /* Section For Variable Of SDL2 */

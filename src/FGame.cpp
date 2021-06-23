@@ -72,6 +72,9 @@ void _fgame_::init(Uint32 fgame_flags = 0) {
 	        std::cout << "[" << &_fgame_have_error_global_ << "]: Can't Open Audio (";
 	        std::cout << Mix_GetError() << ")" << std::endl;
 	    }
+
+	    /* Amount of channels (Max amount of sounds playing at the same time) */
+		Mix_AllocateChannels(32);
 	}
 
 	/* Change Init Boolean Variable */

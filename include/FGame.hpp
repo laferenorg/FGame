@@ -29,6 +29,9 @@
 /* Include Library Of SDL2 */
 #include <SDL2/SDL.h>
 
+/* Include Header */
+#include "FGameSound.hpp"
+
 /* Changed Flags Window */
 #define FG_WINDOWPOS_CENTERED        SDL_WINDOWPOS_CENTERED          /* Change Window Pos Centered in SDL2       */
 #define FG_WINDOW_FULLSCREEN         SDL_WINDOW_FULLSCREEN           /* Changed Flags FullScreen in SDL2         */
@@ -201,8 +204,9 @@ typedef struct _fgame_tone_ FGameTone;
 /* Class for FGameSound */
 class _fgame_sound_ {
 public:
-	static void tone(FGameTone fgame_tone);
-	static void wav(std::string fgame_path, int fgame_volume = 128);
+	static void tone(FGameTone fgame_tone);                                        /* Make Tone */
+	static FGameClassWAV* wav(std::string fgame_path, int fgame_volume = 128);     /* Make WAV */
+	static FGameClassMUSIC* music(std::string fgame_path, int fgame_volume = 128); /* Make Music */
 };
 
 typedef class _fgame_sound_ FGameSound;
