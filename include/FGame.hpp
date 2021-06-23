@@ -27,7 +27,11 @@
 #include <iostream>
 
 /* Include Library Of SDL2 */
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include "../dependencis/include/SDL2/SDL.h"
+#else
+	#include <SDL2/SDL.h>
+#endif
 
 /* Include Header */
 #include "FGameSound.hpp"

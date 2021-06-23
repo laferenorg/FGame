@@ -20,7 +20,7 @@
  * OUT OF OR IN C
  */
 
-/* Library From C++ */
+ /* Library From C++ */
 #include <iostream>
 #include <queue>
 #include <cmath>
@@ -41,7 +41,7 @@
 /* Section For Checking */
 extern bool _fgame_have_init_global_;
 
-fgame_call_sound_wav_::fgame_call_sound_wav_(const std::string &path, int volume)
+fgame_call_sound_wav_::fgame_call_sound_wav_(const std::string& path, int volume)
     : chunk(Mix_LoadWAV(path.c_str()), Mix_FreeChunk) {
     if (!chunk.get()) {
         std::cout << "[" << &path << "]: Can't laod audio" << std::endl;
@@ -57,7 +57,7 @@ void fgame_call_sound_wav_::play() {
 }
 
 /* Contructor */
-fgame_call_sound_music_::fgame_call_sound_music_(const std::string &path, int volume)
+fgame_call_sound_music_::fgame_call_sound_music_(const std::string& path, int volume)
     : chunk(Mix_LoadMUS(path.c_str()), Mix_FreeMusic) {
     if (!chunk.get()) {
         std::cout << "[" << &path << "]: Can't load music" << std::endl;
@@ -79,15 +79,15 @@ struct fgame_been_object {
 
 // class for beeper
 class fgame_beeper {
-    private:
-        double v;
-        std::queue<fgame_been_object> beeps;
-    public:
-        fgame_beeper();
-        ~fgame_beeper();
-        void beep(double freq, int duration);
-        void generateSamples(Sint16 *stream, int length);
-        void wait();
+private:
+    double v;
+    std::queue<fgame_been_object> beeps;
+public:
+    fgame_beeper();
+    ~fgame_beeper();
+    void beep(double freq, int duration);
+    void generateSamples(Sint16* stream, int length);
+    void wait();
 };
 
 /* function audio callback */
@@ -101,10 +101,10 @@ const int FREQUENCY = 44100;
 fgame_beeper::fgame_beeper() {
     SDL_AudioSpec fgame_desiredspec;
 
-    fgame_desiredspec.freq     = FREQUENCY;
-    fgame_desiredspec.format   = AUDIO_S16SYS;
+    fgame_desiredspec.freq = FREQUENCY;
+    fgame_desiredspec.format = AUDIO_S16SYS;
     fgame_desiredspec.channels = 1;
-    fgame_desiredspec.samples  = 2048;
+    fgame_desiredspec.samples = 2048;
     fgame_desiredspec.callback = audio_callback;
     fgame_desiredspec.userdata = this;
 
@@ -123,7 +123,7 @@ fgame_beeper::~fgame_beeper() {
 }
 
 /* function generate sample */
-void fgame_beeper::generateSamples(Sint16 *stream, int length) {
+void fgame_beeper::generateSamples(Sint16* stream, int length) {
     int i = 0;
     while (i < length) {
         if (beeps.empty()) {
@@ -153,7 +153,7 @@ void fgame_beeper::generateSamples(Sint16 *stream, int length) {
 /* function prototype beepe */
 void fgame_beeper::beep(double freq, int duration) {
     fgame_been_object fgame_bo;
-    fgame_bo.freq        = freq;
+    fgame_bo.freq = freq;
     fgame_bo.samplesLeft = duration * FREQUENCY / 1000;
 
     SDL_LockAudio();
@@ -174,11 +174,11 @@ void fgame_beeper::wait() {
 }
 
 // function prototype audio_callback
-void audio_callback(void *_beeper, Uint8 *_stream, int _length)
+void audio_callback(void* _beeper, Uint8* _stream, int _length)
 {
-    Sint16 *stream = (Sint16*) _stream;
+    Sint16* stream = (Sint16*)_stream;
     int length = _length / 2;
-    fgame_beeper* beeper = (fgame_beeper*) _beeper;
+    fgame_beeper* beeper = (fgame_beeper*)_beeper;
     beeper->generateSamples(stream, length);
 }
 
@@ -187,16 +187,16 @@ fgame_beeper fgame_global_beep_;
 
 /* Function play tone from class FGameSound */
 void _fgame_sound_::tone(FGameTone fgame_tone) {
-	/* Check it's has already in init */
-	if(!_fgame_have_init_global_) {
-		std::cout << "[" << &_fgame_have_init_global_ << "]: Can't play sound" << std::endl;
-		return;
-	}
-	
-	/* Play sound */
-	fgame_global_beep_.beep(fgame_tone.fgame_hz, fgame_tone.fgame_duration);
+    /* Check it's has already in init */
+    if (!_fgame_have_init_global_) {
+        std::cout << "[" << &_fgame_have_init_global_ << "]: Can't play sound" << std::endl;
+        return;
+    }
 
-	/* Check if the variable boolean true */
+    /* Play sound */
+    fgame_global_beep_.beep(fgame_tone.fgame_hz, fgame_tone.fgame_duration);
+
+    /* Check if the variable boolean true */
     fgame_global_beep_.wait();
 }
 
