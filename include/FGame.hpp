@@ -32,6 +32,9 @@
 /* Include Header */
 #include "FGameSound.hpp"
 
+/* Micro */
+#define FG_VERSION "1.2.1"
+
 /* Changed Flags Window */
 #define FG_WINDOWPOS_CENTERED        SDL_WINDOWPOS_CENTERED          /* Change Window Pos Centered in SDL2       */
 #define FG_WINDOW_FULLSCREEN         SDL_WINDOW_FULLSCREEN           /* Changed Flags FullScreen in SDL2         */
