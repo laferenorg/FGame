@@ -18,5 +18,8 @@
     <ClInclude Include="FGame.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FGameSound.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

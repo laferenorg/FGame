@@ -27,17 +27,14 @@
 #include <iostream>
 
 /* Include Library Of SDL2 */
-#include <SDL2/SDL.h>
-
 #ifdef _WIN32
-	extern "C" {
-
-	#ifdef FGAME_EXPORTS_LIBRARY
-		#define FGAME_FRAMEWORK __declspec(dllexport)
-	#else
-		#define FGAME_FRAMEWORK __declspec(dllimport)
-	#endif
+	#include "../dependencis/include/SDL2/SDL.h"
+#else
+	#include <SDL2/SDL.h>
 #endif
+
+/* Include Header */
+#include "FGameSound.hpp"
 
 /* Changed Flags Window */
 #define FG_WINDOWPOS_CENTERED        SDL_WINDOWPOS_CENTERED          /* Change Window Pos Centered in SDL2       */
@@ -95,7 +92,10 @@ enum _fgame_key_ {
 
 	/* Event UP, DOWN, RIGHT, LEFT */
 	FG_UP = SDLK_UP, FG_RIGHT = SDLK_RIGHT,
-	FG_LEFT = SDLK_LEFT, FG_DOWN = SDLK_DOWN
+	FG_LEFT = SDLK_LEFT, FG_DOWN = SDLK_DOWN,
+
+	/* Event Space */
+	FG_SPACE = SDLK_SPACE
 };
 
 typedef enum _fgame_key_ FGameKey;
@@ -197,8 +197,22 @@ public:
 
 typedef class _fgame_draw_ FGameDraw;
 
-#ifdef _WIN32
-	}
-#endif
+/* Struct For Tone */
+struct _fgame_tone_ {
+	double fgame_hz;
+	float  fgame_duration;
+};
+
+typedef struct _fgame_tone_ FGameTone;
+
+/* Class for FGameSound */
+class _fgame_sound_ {
+public:
+	static void tone(FGameTone fgame_tone);                                        /* Make Tone */
+	static FGameClassWAV* wav(std::string fgame_path, int fgame_volume = 128);     /* Make WAV */
+	static FGameClassMUSIC* music(std::string fgame_path, int fgame_volume = 128); /* Make Music */
+};
+
+typedef class _fgame_sound_ FGameSound;
 
 #endif // _FGAME_HPP_
