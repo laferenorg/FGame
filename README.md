@@ -20,19 +20,20 @@ In the future, this project for the Windows platform will use Visual Studio C++.
 ## Install Dependencis
 - ### Ubuntu
 ```bash
-$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev -y
+$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev -y
 ```
 
 - ### Windows
   - Download SDL2: [Visual Studio C++ x64/x32](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip)
   - Download SDL2 Image: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip)
   - Download SDL2 Mixer: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip)
+  - Download SDL2 TTF: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-VC.zip)
 
 ## Compile
 - ### Ubuntu
-  Flags For Compile You're code: `-lSDL2 -lSDL2_image -lSDL2_mixer`
+  Flags For Compile You're code: `-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf`
 - ### Windows
-  Linking library: `SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib`
+  Linking library: `SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib`
 ## Documentation
 There are several conveniences when using this framework.
 And this is arguably very easy.
