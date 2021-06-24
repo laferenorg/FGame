@@ -101,7 +101,7 @@ typedef enum _fgame_key_ FGameKey;
 
 /* Color 4: RED GREEN BLUE ALPHA */
 typedef struct {
-	unsigned int R, G, B, A;
+	int R, G, B, A;
 } FGameColor;
 
 /* Struct event for FGameEvent */
@@ -214,5 +214,27 @@ public:
 };
 
 typedef class _fgame_sound_ FGameSound;
+
+/* Struct Font */
+struct _fgame_font_ {
+	FGameColor   color;
+	std::string  text;
+	std::string  _fgame_font_path_;
+	int          size;
+	float        width, height; 
+};
+
+typedef struct _fgame_font_ FGameFont;
+
+/* Class for FgameFontM */
+class _fgame_font_m_ {
+public:
+	static void load(FGameFont& fgame_font, std::string fgame_text,
+				 	 std::string fgame_path, FGameColor fgame_color,
+				 	 int fgame_size);
+	static void render(FGameFont& fgame_font, FGameRect& fgame_rect);
+};
+
+typedef class _fgame_font_m_ FGameFontM;
 
 #endif // _FGAME_HPP_
