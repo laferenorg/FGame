@@ -40,6 +40,25 @@ extern SDL_Renderer *_fgame_renderer_global_;
 void _fgame_font_m_::load(FGameFont& fgame_font, std::string fgame_text,
 					 	  std::string fgame_path, FGameColor fgame_color,
 					 	  int fgame_size) {
+	/* Setup Check */
+	bool exist_font = true;
+
+	/* Check exist file */
+	{
+		std::fstream _fgame_font_check;
+		_fgame_font_check.open(fgame_path, std::ios::in | std::ios::binary);
+		if(!_fgame_font_check.is_open()) {
+			exist_font = false;
+		}
+		_fgame_font_check.close();
+	}
+
+	/* Check exist font */
+	if(!exist_font) {
+		std::cout << "[" << &exist_font << "]: Can't find image" << std::endl;
+		return;
+	}
+
 	/* Setup */
 	fgame_font.color             = fgame_color;
 	fgame_font.text              = fgame_text;
