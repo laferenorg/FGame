@@ -62,7 +62,7 @@ void _fgame_font_m_::load(FGameFont& fgame_font, std::string fgame_text,
 	/* Setup */
 	fgame_font.color             = fgame_color;
 	fgame_font.text              = fgame_text;
-	fgame_font._fgame_font_path_ = fgame_path;
+	fgame_font.fontFamily        = fgame_path;
 	fgame_font.size              = fgame_size;
 
 	/* Color */
@@ -92,7 +92,7 @@ void _fgame_font_m_::render(FGameFont& fgame_font, FGameRect& fgame_rect) {
 				 B = fgame_font.color.B, A = fgame_font.color.A;
 
 	/* Setup Width Height */
-	TTF_Font*    font            = TTF_OpenFont(fgame_font._fgame_font_path_.c_str(), fgame_font.size);
+	TTF_Font*    font            = TTF_OpenFont(fgame_font.fontFamily.c_str(), fgame_font.size);
 	SDL_Color    font_color      = { R, G, B, A };
 	SDL_Surface* font_surface    = TTF_RenderText_Solid(font, fgame_font.text.c_str(), font_color);
 	SDL_Texture* Message         = SDL_CreateTextureFromSurface(_fgame_renderer_global_, font_surface);

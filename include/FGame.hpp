@@ -219,7 +219,7 @@ typedef class _fgame_sound_ FGameSound;
 struct _fgame_font_ {
 	FGameColor   color;
 	std::string  text;
-	std::string  _fgame_font_path_;
+	std::string  fontFamily;
 	int          size;
 	float        width, height; 
 };
