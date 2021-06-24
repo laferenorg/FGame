@@ -27,14 +27,13 @@
 #include <iostream>
 
 /* Include Library Of SDL2 */
-#ifdef _WIN32
-	#include "../dependencis/include/SDL2/SDL.h"
-#else
-	#include <SDL2/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 
 /* Include Header */
 #include "FGameSound.hpp"
+
+/* Micro */
+#define FG_VERSION "1.2.1"
 
 /* Changed Flags Window */
 #define FG_WINDOWPOS_CENTERED        SDL_WINDOWPOS_CENTERED          /* Change Window Pos Centered in SDL2       */
@@ -102,7 +101,7 @@ typedef enum _fgame_key_ FGameKey;
 
 /* Color 4: RED GREEN BLUE ALPHA */
 typedef struct {
-	unsigned int R, G, B, A;
+	int R, G, B, A;
 } FGameColor;
 
 /* Struct event for FGameEvent */
@@ -153,8 +152,8 @@ typedef class _fgame_rect_ FGameRect;
 
 /* Struct For Image */
 struct _fgame_image_ {
-	std::string _fgame_path_location_;
-	float width, height;
+	SDL_Texture* image;
+	float        width, height;
 };
 
 typedef struct _fgame_image_ FGameImage;
@@ -162,9 +161,10 @@ typedef struct _fgame_image_ FGameImage;
 /* Class For FGameImageM */
 class _fgame_image_m_ {
 public:
-	static FGameImage load(std::string fgame_image_path);                                    /* Load function        */
+	static void load(FGameImage& fgame_image, std::string fgame_image_path);                                    /* Load function        */
 	static void Render(FGameImage& fgame_image, FGameRect& fgame_rect);                      /* Render function      */
 	static void RenderFlip(FGameImage& fgame_image, FGameRect& fgame_rect, bool fgame_left); /* Render Flip function */
+	static void FreeImage(FGameImage& fgame_image);
 };
 
 typedef class _fgame_image_m_ FGameImageM;
@@ -214,5 +214,27 @@ public:
 };
 
 typedef class _fgame_sound_ FGameSound;
+
+/* Struct Font */
+struct _fgame_font_ {
+	FGameColor   color;
+	std::string  text;
+	std::string  fontFamily;
+	int          size;
+	float        width, height; 
+};
+
+typedef struct _fgame_font_ FGameFont;
+
+/* Class for FgameFontM */
+class _fgame_font_m_ {
+public:
+	static void load(FGameFont& fgame_font, std::string fgame_text,
+				 	 std::string fgame_path, FGameColor fgame_color,
+				 	 int fgame_size);
+	static void render(FGameFont& fgame_font, FGameRect& fgame_rect);
+};
+
+typedef class _fgame_font_m_ FGameFontM;
 
 #endif // _FGAME_HPP_
