@@ -3,22 +3,18 @@
 
 /* Include Library C++ */
 #include <memory>
-#include <string>
 
 /* Include Library SDL2 */
-#ifdef _WIN32
-    #include "../dependencis/include/SDL2/SDL_mixer.h"
-#else
-    #include <SDL2/SDL_mixer.h>
-#endif
+#include <SDL2/SDL_mixer.h>
+
 /* Class for play wav */
 class fgame_call_sound_wav_ {
 public:
-    fgame_call_sound_wav_(const std::string& fgame_path, int fgame_volume);
+    fgame_call_sound_wav_(const std::string &fgame_path, int fgame_volume);
     void play();
 
 private:
-    std::unique_ptr<Mix_Chunk, void (*)(Mix_Chunk*)> chunk;
+    std::unique_ptr<Mix_Chunk, void (*)(Mix_Chunk *)> chunk;
 };
 
 typedef class fgame_call_sound_wav_ FGameClassWAV;
@@ -26,11 +22,11 @@ typedef class fgame_call_sound_wav_ FGameClassWAV;
 /* Class for play wav */
 class fgame_call_sound_music_ {
 public:
-    fgame_call_sound_music_(const std::string& fgame_path, int fgame_volume);
+    fgame_call_sound_music_(const std::string &fgame_path, int fgame_volume);
     void play(int loops);
 
 private:
-    std::unique_ptr<Mix_Music, void (*)(Mix_Music*)> chunk;
+    std::unique_ptr<Mix_Music, void (*)(Mix_Music *)> chunk;
 };
 
 typedef class fgame_call_sound_music_ FGameClassMUSIC;

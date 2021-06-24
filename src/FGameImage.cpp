@@ -38,9 +38,8 @@
 extern SDL_Renderer *_fgame_renderer_global_;
 
 /* Function load from class FGameImageM */
-FGameImage _fgame_image_m_::load(std::string fgame_image_path) {
+void _fgame_image_m_::load(FGameImage& fgame_image, std::string fgame_image_path) {
 	/* Setup */
-	FGameImage image;
 	bool exist_image = true;
 
 	/* Check exist file */
@@ -55,18 +54,16 @@ FGameImage _fgame_image_m_::load(std::string fgame_image_path) {
 
 	/* Check exist image */
 	if(!exist_image) {
-		std::cout << "[" << &image << "]: Can't find image" << std::endl;
-		return image;
+		std::cout << "[" << &fgame_image << "]: Can't find image" << std::endl;
+		return;
 	}
 
 	/* Setup data */
-	SDL_Surface* tempSurface    = IMG_Load(fgame_image_path.c_str());
-	image._fgame_path_location_ = fgame_image_path;
-	image.width                 = tempSurface->w;
-	image.height                = tempSurface->h;
+	SDL_Surface* tempSurface     = IMG_Load(fgame_image_path.c_str());
+	fgame_image.image            = SDL_CreateTextureFromSurface(_fgame_renderer_global_, tempSurface);
+	fgame_image.width            = tempSurface->w;
+	fgame_image.height           = tempSurface->h;
 	SDL_FreeSurface(tempSurface);
-
-	return image;
 }
 
 /* Function Render from class FGameImageM */
@@ -78,12 +75,7 @@ void _fgame_image_m_::Render(FGameImage& fgame_image, FGameRect& fgame_rect) {
 	fgame_rect_dest.x = fgame_rect.x;
 	fgame_rect_dest.y = fgame_rect.y;
 
-	/* Script Texture Manager For Load */
-    SDL_Surface* tempSurface = IMG_Load(fgame_image._fgame_path_location_.c_str());
-    SDL_Texture* tex         = SDL_CreateTextureFromSurface(_fgame_renderer_global_, tempSurface);
-    SDL_FreeSurface(tempSurface);
-    SDL_RenderCopy(_fgame_renderer_global_, tex, NULL, &fgame_rect_dest);
-    SDL_DestroyTexture(tex);
+    SDL_RenderCopy(_fgame_renderer_global_, fgame_image.image, NULL, &fgame_rect_dest);
 }
 
 /* Function Render Flip from class FGameImageM */
@@ -102,9 +94,11 @@ void _fgame_image_m_::RenderFlip(FGameImage& fgame_image, FGameRect& fgame_rect,
 	if(fgame_left) flip = SDL_FLIP_HORIZONTAL;
 
 	/* Script Texture Manager For Load */
-    SDL_Surface* tempSurface = IMG_Load(fgame_image._fgame_path_location_.c_str());
-    SDL_Texture* tex         = SDL_CreateTextureFromSurface(_fgame_renderer_global_, tempSurface);
-    SDL_FreeSurface(tempSurface);
-    SDL_RenderCopyEx(_fgame_renderer_global_, tex, NULL, &fgame_rect_dest, 0, NULL, flip);
-    SDL_DestroyTexture(tex);
+    SDL_RenderCopyEx(_fgame_renderer_global_, fgame_image.image, NULL, &fgame_rect_dest, 0, NULL, flip);
+}
+
+/* Function Free Image from class FGameImageM */
+void _fgame_image_m_::FreeImage(FGameImage& fgame_image) {
+	/* Free Image */
+	SDL_DestroyTexture(fgame_image.image);
 }
