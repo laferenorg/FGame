@@ -27,6 +27,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
 
 /* header */
 #include <FGame.hpp>
@@ -71,6 +72,13 @@ void _fgame_::init(Uint32 fgame_flags = 0) {
 	        _fgame_have_error_global_ = true;
 	        std::cout << "[" << &_fgame_have_error_global_ << "]: Can't Open Audio (";
 	        std::cout << Mix_GetError() << ")" << std::endl;
+	    }
+
+	    /* Check and init ttf */
+	    if(TTF_Init() == -1) {
+	    	_fgame_have_error_global_ = true;
+	    	std::cout << "[" << &_fgame_have_error_global_ << "]: Can't Open Audio (";
+	        std::cout << TTF_GetError() << ")" << std::endl;
 	    }
 
 	    /* Amount of channels (Max amount of sounds playing at the same time) */

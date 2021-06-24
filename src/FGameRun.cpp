@@ -29,6 +29,7 @@
 /* Library From SDL2 */
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
 
 /* header */
 #include <FGame.hpp>
@@ -94,6 +95,9 @@ void _fgame_run_::run(void(*handleEvent_fgame)(FGameEvent&),
 	/* Destroy */
 	SDL_DestroyRenderer(_fgame_renderer_global_);
 	SDL_DestroyWindow(_fgame_window_global_);
+	
+	/* Quit */
 	Mix_CloseAudio();
+	TTF_Quit();
 	SDL_Quit();
 }

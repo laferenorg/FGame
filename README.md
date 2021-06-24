@@ -15,26 +15,27 @@ In the future, this project for the Windows platform will use Visual Studio C++.
     |-----------|------------------------|------------------------|------------------------|
     |  V1.0.0   |           :x:          |   :white_check_mark:   |            :x:         |
     |  V1.1.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
+    |  V1.2.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
 
 ## Install Dependencis
 - ### Ubuntu
 ```bash
-$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev -y
+$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev -y
 ```
 
 - ### Windows
   - Download SDL2: [Visual Studio C++ x64/x32](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip)
   - Download SDL2 Image: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip)
   - Download SDL2 Mixer: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip)
-  
+  - Download SDL2 TTF: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-VC.zip)
   - #### Preprocessor
-    You mus include `SDL_MAIN_HANDLED` in preprocessor on you project;
+    You must include `SDL_MAIN_HANDLED` in preprocessor on you project
 
 ## Compile
 - ### Ubuntu
-  Flags For Compile You're code: `-lSDL2 -lSDL2_image -lSDL2_mixer`
+  Flags For Compile You're code: `-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf`
 - ### Windows
-  Linking library: `SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib`
+  Linking library: `SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib`
 ## Documentation
 There are several conveniences when using this framework.
 And this is arguably very easy.
@@ -444,7 +445,7 @@ And this is arguably very easy.
     This function for load image into variable `FGameImage`.
     And the parameters of this function are:
     ```cpp
-     FGameImage load(std::string fgame_image_path)
+     void load(FGameImage& fgame_image, std::string fgame_image_path)
     ```
   - #### `Render`
     This function for render image.
@@ -506,7 +507,7 @@ And this is arguably very easy.
       
       int main(int argc, const char* argv[]) {
         /* Setup main */
-        player = FGameImageM::load("PATH");
+        FGameImageM::load(player, "PATH");
         
         FGameColor white = { 255, 255, 255, 0 };
         FGame::init(FG_WINDOW_RESIZABLE);
@@ -520,6 +521,106 @@ And this is arguably very easy.
         playerRect.height = player.height;
 
         FGameRun::run(handleEvents, update, 60);
+      }
+    ```
+- ### Get Version
+  Support For Get Version in this table.
+  - #### Version Support
+    |      Version       |          Support       |
+    |--------------------|------------------------|
+    |  V1.0.0 - V1.1.1   |           :x:          |
+    |     > V1.2.1       |   :white_check_mark:   |
+  - #### How To Get
+    How to get version you must using `FG_VERSION`
+    ```cpp
+      #define FG_VERSION "Version Of FGame"
+    ```
+- ### Text
+  - #### Variable
+    Text Variable, Used for parameter on function.
+    You can change data in this variable.
+    ```cpp
+      typedef struct {
+        FGameColor   color;
+        std::string  text;
+        std::string  fontFamily;
+        int          size;
+        float        width, height; 
+      } FGameFont;
+    ```
+  - #### Example
+    ```cpp
+      FGameFont player;
+      
+      int main(int argc, const char* argv[]) {
+        player.color = { 255, 255, 255, 0 };
+        player.text = "Hello, World";
+        player.fontFamily = "PATH/FILE.ttf";
+        player.size = 30;
+        
+        /* Info height and width will be filled automatically when load function */
+        {
+          (void)argc;
+          (void)argv;
+        }
+        return 0;
+      }
+    ```
+- ### Text Manager
+  You don't need to declare the class.
+  You can only call functions from that class.
+  - #### Function
+    `load`
+    This function for load data in variable `FGameFont`.
+    And the parameters of this function are:
+    ```cpp
+      void load(FGameFont& fgame_font, std::string fgame_text, std::string fgame_path,
+                FGameColor fgame_color, int fgame_size)
+    ```
+    `render`
+    This function for render text.
+    And the parameters of this function are:
+    ```cpp
+      void render(FGameFont& fgame_font, FGameRect& fgame_rect)
+    ```
+  - #### Example
+    ```cpp
+      /* Setup */
+      FGameColor bg = { 144, 201, 120, 0 };
+      FGameRect rectTest;
+      FGameRect rectTests;
+      FGameFont fontTest;
+
+      int main(int argc, const char* argv[]) {
+        /* Run */
+        FGame::init(FG_WINDOW_RESIZABLE);
+        FGame::set_size(800, 800 * 0.8);
+        FGame::set_caption("FGame Test");
+
+        FGameFontM::load(fontTest, "Hello, World!", "PATH/FILE.ttf", { 255, 255, 255, 0 }, 30);
+
+        rectTest.width = fontTest.width;
+        rectTest.height = fontTest.height;
+        rectTest.x = 0;
+        rectTest.y = 0;
+
+        rectTests.width = fontTest.width;
+        rectTests.height = fontTest.height;
+        rectTests.x = 100;
+        rectTests.y = 100;
+
+        FGameRun::run([](FGameEvent& event){
+          FGame::fill(bg);
+        }, [](){
+          FGameFontM::render(fontTest, rectTest);
+          FGameFontM::render(fontTest, rectTests);
+        }, 60);
+
+        {
+          (void)argc;
+          (void)argv;
+        }
+        return 0;
       }
     ```
 - ### Example
