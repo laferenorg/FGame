@@ -33,5 +33,11 @@
     <ClCompile Include="FGameRun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FGameSound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FGameFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
