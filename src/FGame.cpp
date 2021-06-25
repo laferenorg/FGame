@@ -139,3 +139,9 @@ void _fgame_::fill(FGameColor fgame_color) {
 						   fgame_color.R, fgame_color.G,
 						   fgame_color.B, fgame_color.A);
 }
+
+/* Function Set Position Window From Class FGame */
+void _fgame_::set_position(float fgame_x, float fgame_y) {
+	/* Set position window */
+	SDL_SetWindowPosition(_fgame_window_global_, fgame_x, fgame_y);
+}
