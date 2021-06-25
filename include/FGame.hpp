@@ -125,10 +125,11 @@ typedef class _fgame_run_ FGameRun;
 class _fgame_ {
 public:
 	/* Public Function In FGame Class */
-	static void init(Uint32 fgame_flags);                        /* Init Function From This Class                 */
-	static void set_size(float fgame_width, float fgame_height); /* Set Mode Function From This Class             */
-	static void set_caption(std::string fgame_title);            /* Set Title Function From This Class            */
-	static void fill(FGameColor fgame_color);                    /* Set background color function from this class */
+	static void init(Uint32 fgame_flags);                        /* Init Function From This Class                   */
+	static void set_size(float fgame_width, float fgame_height); /* Set Mode Function From This Class               */
+	static void set_caption(std::string fgame_title);            /* Set Title Function From This Class              */
+	static void fill(FGameColor fgame_color);                    /* Set background color function from this class   */
+	static void set_position(float fgame_x, float fgame_y);      /* Set position of window function from this class */
 };
 
 typedef class _fgame_ FGame;
