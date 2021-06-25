@@ -37,8 +37,23 @@
 /* Section For Variable Of SDL2 */
 extern SDL_Renderer *_fgame_renderer_global_;
 
+/* Section For Checking */
+extern bool          _fgame_have_error_global_;
+extern bool          _fgame_have_init_global_;
+
 /* Function load from class FGameImageM */
 void _fgame_image_m_::load(FGameImage& fgame_image, std::string fgame_image_path) {
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Setup */
 	bool exist_image = true;
 
@@ -68,6 +83,23 @@ void _fgame_image_m_::load(FGameImage& fgame_image, std::string fgame_image_path
 
 /* Function Render from class FGameImageM */
 void _fgame_image_m_::Render(FGameImage& fgame_image, FGameRect& fgame_rect) {
+	/* Check renderer */
+	if(!_fgame_renderer_global_) {
+		_fgame_have_error_global_ = true;
+		std::cout << "[" << _fgame_renderer_global_ << "]: The renderer have problem" << std::endl;
+	}
+
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Setup */
 	SDL_Rect fgame_rect_dest;
 	fgame_rect_dest.w = fgame_rect.width;
@@ -80,6 +112,23 @@ void _fgame_image_m_::Render(FGameImage& fgame_image, FGameRect& fgame_rect) {
 
 /* Function Render Flip from class FGameImageM */
 void _fgame_image_m_::RenderFlip(FGameImage& fgame_image, FGameRect& fgame_rect, bool fgame_left) {
+	/* Check renderer */
+	if(!_fgame_renderer_global_) {
+		_fgame_have_error_global_ = true;
+		std::cout << "[" << _fgame_renderer_global_ << "]: The renderer have problem" << std::endl;
+	}
+
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Setup */
 	SDL_RendererFlip flip = SDL_FLIP_NONE;
 	SDL_Rect         fgame_rect_dest;
@@ -99,6 +148,16 @@ void _fgame_image_m_::RenderFlip(FGameImage& fgame_image, FGameRect& fgame_rect,
 
 /* Function Free Image from class FGameImageM */
 void _fgame_image_m_::FreeImage(FGameImage& fgame_image) {
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
 	/* Free Image */
 	SDL_DestroyTexture(fgame_image.image);
 }

@@ -33,7 +33,7 @@
 #include "FGameSound.hpp"
 
 /* Micro */
-#define FG_VERSION "1.2.1"
+#define FG_VERSION "1.3.2"
 
 /* Changed Flags Window */
 #define FG_WINDOWPOS_CENTERED        SDL_WINDOWPOS_CENTERED          /* Change Window Pos Centered in SDL2       */
