@@ -16,6 +16,7 @@ In the future, this project for the Windows platform will use Visual Studio C++.
     |  V1.0.0   |           :x:          |   :white_check_mark:   |            :x:         |
     |  V1.1.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
     |  V1.2.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
+    |  V1.3.2   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
 
 ## Install Dependencis
 What is meant here is how to install dependencies for this game framework.
