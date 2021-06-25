@@ -36,10 +36,31 @@
 /* Section For Variable Of SDL2 */
 extern SDL_Renderer *_fgame_renderer_global_;
 
+/* Section For Checking */
+extern bool          _fgame_have_error_global_;
+extern bool          _fgame_have_init_global_;
+
 /* Function draw line */
 void _fgame_draw_::line(FGameColor fgame_color,
 						float fgame_x1, float fgame_y1,
 					 	float fgame_x2, float fgame_y2) {
+	/* Check renderer */
+	if(!_fgame_renderer_global_) {
+		_fgame_have_error_global_ = true;
+		std::cout << "[" << _fgame_renderer_global_ << "]: The renderer have problem" << std::endl;
+	}
+
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+	
 	/* Setup Color */
 	SDL_SetRenderDrawColor(_fgame_renderer_global_,
 						   fgame_color.R, fgame_color.G, fgame_color.B, fgame_color.A);
@@ -52,6 +73,23 @@ void _fgame_draw_::line(FGameColor fgame_color,
 /* Function rect fill line */
 void _fgame_draw_::rectFill(FGameColor fgame_color,
 						    FGameRect& fgame_rect) {
+	/* Check renderer */
+	if(!_fgame_renderer_global_) {
+		_fgame_have_error_global_ = true;
+		std::cout << "[" << _fgame_renderer_global_ << "]: The renderer have problem" << std::endl;
+	}
+
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Setup Variable */
 	SDL_Rect rectTarget;
 
@@ -72,6 +110,23 @@ void _fgame_draw_::rectFill(FGameColor fgame_color,
 /* Function draw rect */
 void _fgame_draw_::rect(FGameColor fgame_color,
 				        FGameRect& fgame_rect) {
+	/* Check renderer */
+	if(!_fgame_renderer_global_) {
+		_fgame_have_error_global_ = true;
+		std::cout << "[" << _fgame_renderer_global_ << "]: The renderer have problem" << std::endl;
+	}
+
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Setup Variable */
 	SDL_Rect rectTarget;
 

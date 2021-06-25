@@ -94,12 +94,14 @@ void _fgame_::init(Uint32 fgame_flags = 0) {
 /* Function Set Mode From Class FGame */
 void _fgame_::set_size(float fgame_width, float fgame_height) {
 	/* Check this have error */
-	if(!_fgame_have_init_global_)
+	if(!_fgame_have_init_global_) {
 		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
 		return;
-	if(!_fgame_have_error_global_)
+	}
+	if(!_fgame_have_error_global_) {
 		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
 		return;
+	}
 
 	/* If have been check it's success */
 	SDL_SetWindowSize(_fgame_window_global_, fgame_width, fgame_height);
@@ -142,6 +144,17 @@ void _fgame_::fill(FGameColor fgame_color) {
 
 /* Function Set Position Window From Class FGame */
 void _fgame_::set_position(float fgame_x, float fgame_y) {
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Set position window */
 	SDL_SetWindowPosition(_fgame_window_global_, fgame_x, fgame_y);
 }

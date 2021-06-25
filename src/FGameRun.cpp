@@ -50,6 +50,23 @@ SDL_Event            _fgame_event_;
 /* Function run from class FGameRun */
 void _fgame_run_::run(void(*handleEvent_fgame)(FGameEvent&),
 					  void(*callback_fgame)(), float FPS) {
+	/* Check renderer */
+	if(!_fgame_renderer_global_) {
+		_fgame_have_error_global_ = true;
+		std::cout << "[" << _fgame_renderer_global_ << "]: The renderer have problem" << std::endl;
+	}
+
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+	
 	/* Variable setup */
 	Uint32 start;
 

@@ -37,9 +37,24 @@
 /* Section For Variable Of SDL2 */
 extern SDL_Renderer *_fgame_renderer_global_;
 
+/* Section For Checking */
+extern bool          _fgame_have_error_global_;
+extern bool          _fgame_have_init_global_;
+
 void _fgame_font_m_::load(FGameFont& fgame_font, std::string fgame_text,
 					 	  std::string fgame_path, FGameColor fgame_color,
 					 	  int fgame_size) {
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Setup Check */
 	bool exist_font = true;
 
@@ -80,6 +95,23 @@ void _fgame_font_m_::load(FGameFont& fgame_font, std::string fgame_text,
 }
 
 void _fgame_font_m_::render(FGameFont& fgame_font, FGameRect& fgame_rect) {
+	/* Check renderer */
+	if(!_fgame_renderer_global_) {
+		_fgame_have_error_global_ = true;
+		std::cout << "[" << _fgame_renderer_global_ << "]: The renderer have problem" << std::endl;
+	}
+
+	/* Check this have error */
+	if(_fgame_have_init_global_ == false) {
+		std::cout << "[" << &_fgame_have_init_global_ << "]: Have Not Initialize" << std::endl;
+		return;
+	}
+
+	if(_fgame_have_error_global_ == true) {
+		std::cout << "[" << &_fgame_have_error_global_ << "]: Have Error" << std::endl;
+		return;
+	}
+
 	/* Setup */
 	SDL_Rect fgame_rect_dest;
 	fgame_rect_dest.w = fgame_rect.width;
