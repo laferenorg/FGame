@@ -18,31 +18,43 @@ In the future, this project for the Windows platform will use Visual Studio C++.
     |  V1.2.1   |   :white_check_mark:   |   :white_check_mark:   |   :white_check_mark:   |
 
 ## Install Dependencis
+What is meant here is how to install dependencies for this game framework.
 - ### Ubuntu
+This is the way to install dependencies on ubuntu.
 ```bash
 $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev -y
 ```
 
 - ### Windows
+  If you are a windows user you can see directly in the `Release` or you can follow the way to install dependencies.
   - Download SDL2: [Visual Studio C++ x64/x32](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip)
   - Download SDL2 Image: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip)
   - Download SDL2 Mixer: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip)
   - Download SDL2 TTF: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-VC.zip)
-  - #### Preprocessor
-    You must include `SDL_MAIN_HANDLED` in preprocessor on you project
 
 ## Compile
-- ### Ubuntu
-  Flags For Compile You're code: `-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf`
+This is how to compile your code.
+You must also include this `fgame` library file.
+
+- ### Linux
+  Flags For Compile You're code:
+  ```bash
+    g++ source.cpp -L path/fgame/lib -lfgame \
+        -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
+        -o output.out
+  ```
 - ### Windows
-  Linking library: `SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib`
+  Linking library: `fgame.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib`
+  - #### Preprocessor
+    You must include `SDL_MAIN_HANDLED` in preprocessor on you project
 ## Documentation
 There are several conveniences when using this framework.
-And this is arguably very easy.
+Hope you read all the documentation before using this framework.
 
 - ### Flags
-  there are several flags that are used at this time, namely in the following table.
-  It's just like plagiarizing from SDL2.
+  There are several flags currently in use, namely in the following table.
+  It's like plagiarizing from SDL2.
+  And this one is used at init time and there is another one, according to the table you see the tile.
   |             Window            |         Position       |
   |-------------------------------|------------------------|
   | FG_WINDOW_FULLSCREEN          | FG_WINDOWPOS_CENTERED  |
@@ -68,8 +80,9 @@ And this is arguably very easy.
   | FG_WINDOW_TOOLTIP             |                        |
   | FG_WINDOW_POPUP_MENU          |                        |
 - ### Key Event
-  The keyboard events that can be used can be seen in the following table.
+  Keyboard events that can be used can be seen in the following table.
   And these can only be numbers, alphabets, and arrows.
+  And this is used when you receive the function event key callback.
   | Number | Alphabet | Arrows   |
   |--------|----------|----------|
   | FG_0   | FG_A     | FG_UP    |
@@ -100,23 +113,30 @@ And this is arguably very easy.
   |        | FG_Z     |          |
 - ### Event Type
   Event types can be seen below this table.
+  And this is used if the callback function event is in the event.
   |         Type       | Event Type |
   |--------------------|------------|
   | FG_QUIT            | FG_KEYDOWN |
   | FG_APP_TERMINATING | FG_KEYUP   |
   | FG_APP_LOWMEMORY   |            |
 - ### Color
-  Variable color, to make the data as a parameter for later.
-  The data will be entered sequentially in the order of Red, Green, Blue, and Alpha.
+  Variable color, to be used as data as a parameter later.
+  Data will be entered sequentially in order of Red, Green, Blue, and Alpha.
+  And you can change the data whether Red, Green, Blue, or alpha.
   Example Like the following.
   ```cpp
    ...
-    FGameColor white = { 255, 255, 255, 0 };
+    FGameColor white = { 0, 0, 0, 0 };
+    white.R = 255;
+    white.G = 255;
+    white.B = 255;
+    white.A = 0;
    ...
   ```
 - ### Rect
-  Just like in SDL2, there is also a rectangle variable here.
+  Just like in SDL2, there is also a rectangular variable here.
   And how to use it as follows.
+  And later this is used to set the width, height, horizontal position, and vertical position.
   ```cpp
    ...
     FGameRect player1;
@@ -136,12 +156,14 @@ And this is arguably very easy.
   ```
   - #### Function
     ##### `set_size`
-    this section to fill in the data size with the following parameters.
+    this section to fill the data size with the following parameters.
+    And this is to make it easier for you to fill in big data from the variables you create.
     ```cpp
       void set_size(float fgame_width, float fgame_height)
     ```
     ##### `set_position`
     this section to fill in the data position with the following parameters.
+    And the function in to make it easy for you to adjust the position of the variables you create
     ```cpp
       void set_position(float fgame_x, float fgame_y)
     ```
