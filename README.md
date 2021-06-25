@@ -237,6 +237,12 @@ Hope you read all the documentation before using this framework.
     ```cpp
       void fill(FGameColor fgame_color)
     ```
+  - #### `set_position`
+    This function used for set the position of window.
+    And the parameters of this function are:
+    ```cpp
+      void set_position(float fgame_x, float fgame_y)
+    ```
   - #### `Example`
     ```cpp
       FGameColor white = { 255, 255, 255, 0 };
@@ -244,6 +250,7 @@ Hope you read all the documentation before using this framework.
       FGame::init(FG_WINDOW_RESIZABLE);
       FGame::set_size(800, 800 * 0.8);
       FGame::set_caption("FGame Test");
+      FGame::set_position(FG_WINDOWPOS_CENTERED, 100); // Using micro and number parameter
       FGame::fill(white); /* Or FGame::fill({ 255, 255, 255, 0 });  */
     ```
 - ### FGameRun Class
