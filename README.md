@@ -33,6 +33,16 @@ $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-d
   - Download SDL2 Mixer: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip)
   - Download SDL2 TTF: [Visual Studio C++ x64/x32](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-VC.zip)
 
+## Build Source
+This is how to compile this project.
+ - Linux
+   This is how to build source in Linux.
+  ```bash
+    $ make
+  ```
+  - Windows
+    You log into Visual Studio by using the .sln format file. And press build
+
 ## Compile
 This is how to compile your code.
 You must also include this `fgame` library file.
