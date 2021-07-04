@@ -1,0 +1,6 @@
+# IGnore file
+lib*
+cmake*
+
+# Ignore Folder
+build/
