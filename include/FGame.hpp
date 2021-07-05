@@ -46,8 +46,14 @@
 		/* This class it's for using in future, like load image */
 		#include "FGImage.hpp"
 
+		/* This class it's for using in future, for manage or variable of sound */
+		#include "FGSound.hpp"
+
 		/* This class for helping set any data */
 		#include "FGSet.hpp"
+
+		/* This class for helping in TTF */
+		#include "FGTTF.hpp"
 
 		/* This class it's for using in future, like function delay */
 		#include "FGRun.hpp"

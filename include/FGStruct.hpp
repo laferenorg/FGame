@@ -51,6 +51,17 @@ struct FGAME_CALL FG_Color {
 	float R, G, B, A = 0;
 };
 
+/* This structure for setup true type font
+ * this will be convert into the font
+ */
+struct FG_TTF {
+	FG_Color color;
+	std::string text;
+	std::string fontFamily;
+	float size = 0;
+	float width = 0, height = 0; 
+};
+
 /* This structure for setup data for SDL2, 
  * This using for setup or maybe management 
  * another system in future

@@ -19,42 +19,27 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN C
  */
-#ifndef _FGAME_RUN_HEADER_
-#define _FGAME_RUN_HEADER_
-
-/* Include header library SDL2 */
-#include <SDL2/SDL.h>
+#ifndef _FGAME_TTF_HEADER_
+#define _FGAME_TTF_HEADER_
 
 /* Include header in include directory from this project */
 #include "FGBegin.hpp"
-#include "FGImage.hpp"
-#include "FGSet.hpp"
-#include "FGDraw.hpp"
-#include "FGSound.hpp"
-#include "FGTTF.hpp"
+#include "FGStruct.hpp"
 
-class FGAME_CALL FGRun {
-	/* Public variable for helper in future */
+/* This class it's for management true type font or another name TTF */
+class FGAME_CALL FGTTF {
+	/* This class no have private section */
+
+	/* Public function for setup or using */
 	public:
-		/* This variable helper in image */
-		FGImage Image;
+		/* This for load font */
+		void load(FG_TTF& font, std::string text, std::string path_ttf,
+			FG_Color color, float size, FGData_System& system, std::string& message_error, 
+			bool& errorEvent);
 
-		/* This variable helper in rectangle */
-		FGSet Set;
-
-		/* This variable helping for draw something */
-		FGDraw Draw;
-
-		/* This variable helping for manage sound */
-		FGSound Sound;
-
-		/* This variable for helping in true type font or TTF */
-		FGTTF TTF;
-
-	/* Public function for using in future too */
-	public:
-		/* Function Delay */
-		void Delay(Uint32 milisecond);
+		/* This function for render the ttf */
+		void render(FG_TTF& font, FG_Rect& rect,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
-#endif /* _FGAME_RUN_HEADER_ */
+#endif /* _FGAME_TTF_HEADER_ */

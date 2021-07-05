@@ -5,7 +5,6 @@ set(PROJECT_NAME "fgame")
 
 ## Set our project name
 project(${PROJECT_NAME} VERSION 2.0.0 DESCRIPTION "FGame Framework 2D Version 2")
-set(CMAKE_BUILD_TYPE DEBUG)
 
 ## Set version of C++ compiler
 set(CMAKE_CXX_STANDARD 17)

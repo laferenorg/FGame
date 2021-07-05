@@ -28,6 +28,9 @@
 /* Include header SDL2 */
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_net.h>
 
 /* Include header from include directory in this project */
 #include "FGameV2.hpp"
@@ -100,6 +103,49 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, std::string title,
 					/* And write the message error */
 					ErrorMessage = "Can't init: Image, Init required JPG, PNG, TIF";
 					ErrorMessage += " " + ((std::string)IMG_GetError());
+					ErrorMessage += " | In function FGameV2::FGameV2";
+				}
+			}
+			break;
+			case FG_MIXER: {
+				/* Setup mixer and check */
+				if(Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096) == -1) {
+					/* If have error set error into true */
+					ErrorEvent = true;
+
+					/* And write the message error */
+					ErrorMessage = "Can't init: Mixer, ";
+					ErrorMessage += ((std::string)Mix_GetError());
+					ErrorMessage += " | In function FGameV2::FGameV2";
+				} else {
+					/* If no have error */
+					/* Amount of channels (Max amount of sounds playing at the same time) */
+					Mix_AllocateChannels(32);
+				}
+			}
+			break;
+			case FG_TTF: {
+				/* Init ttf library and check it's have error */
+				if(TTF_Init() == -1) {
+					/* If have error set error into true */
+					ErrorEvent = true;
+
+					/* And write the message error */
+					ErrorMessage = "Can't init: TTF, ";
+					ErrorMessage += ((std::string)TTF_GetError());
+					ErrorMessage += " | In function FGameV2::FGameV2";
+				}
+			}
+			break;
+			case FG_NET: {
+				/* Init net library and check it's have error */
+				if(SDLNet_Init() == -1) {
+					/* If have error set error into true */
+					ErrorEvent = true;
+
+					/* And write the message error */
+					ErrorMessage = "Can't init: NET, ";
+					ErrorMessage += ((std::string)SDLNet_GetError());
 					ErrorMessage += " | In function FGameV2::FGameV2";
 				}
 			}
