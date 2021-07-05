@@ -43,6 +43,11 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, std::string title,
 	/* Setup variable flags for init window for SDL2 */
 	Uint32 flagsInit = 0;
 
+	/* Fill data init */
+	for(int INIT = 0; INIT < ((int)flags.size()); INIT++) {
+		what_init.push_back(flags[INIT]);
+	}
+
 	/* Check init flags */
 	for(int INIT = 0; INIT < ((int)flags.size()); INIT++) {
 		switch(flags[INIT]) {
@@ -90,7 +95,7 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, std::string title,
 				}
 			}
 			break;
-			case FG_IMAGE: {
+			case FG_IMAGE_INIT: {
 				/* Setup variable and init */
 				int flagsInitImage = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF;
 				int initted = IMG_Init(flagsInitImage);
@@ -107,7 +112,7 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, std::string title,
 				}
 			}
 			break;
-			case FG_MIXER: {
+			case FG_MIXER_INIT: {
 				/* Setup mixer and check */
 				if(Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096) == -1) {
 					/* If have error set error into true */
@@ -124,7 +129,7 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, std::string title,
 				}
 			}
 			break;
-			case FG_TTF: {
+			case FG_TTF_INIT: {
 				/* Init ttf library and check it's have error */
 				if(TTF_Init() == -1) {
 					/* If have error set error into true */
@@ -137,7 +142,7 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, std::string title,
 				}
 			}
 			break;
-			case FG_NET: {
+			case FG_NET_INIT: {
 				/* Init net library and check it's have error */
 				if(SDLNet_Init() == -1) {
 					/* If have error set error into true */
@@ -159,6 +164,32 @@ FGameV2::~FGameV2() {
 	/* Free memory */
 	SDL_DestroyRenderer(System.render);
 	SDL_DestroyWindow(System.window);
+
+	/* Quit library */
+	for(int INIT = 0; INIT < ((int)what_init.size()); INIT++) {
+		switch(what_init[INIT]) {
+			case FG_MIXER_INIT: {
+				/* Quit mixer */
+				Mix_Quit();
+			}
+			break;
+			case FG_IMAGE_INIT: {
+				/* Quit image */
+				IMG_Quit();
+			}
+			break;
+			case FG_TTF_INIT: {
+				/* Quit TTF */
+				TTF_Quit();
+			}
+			break;
+			case FG_NET_INIT: {
+				/* Quit net */
+				SDLNet_Quit();
+			}
+			break;
+		}
+	}
 
 	/* Quit */
 	SDL_Quit();

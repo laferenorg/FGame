@@ -23,10 +23,10 @@
 #define _FGAME_FLAGS_HEADER_
 
 /* This for flags init */
-#define FG_INIT  0x0000001
-#define FG_MIXER 0x0000002
-#define FG_IMAGE 0x0000003
-#define FG_TTF   0x0000004
-#define FG_NET   0x0000005
+#define FG_INIT       0x0000001
+#define FG_MIXER_INIT 0x0000002
+#define FG_IMAGE_INIT 0x0000003
+#define FG_TTF_INIT   0x0000004
+#define FG_NET_INIT   0x0000005
 
 #endif /* _FGAME_FLAGS_HEADER_ */

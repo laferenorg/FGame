@@ -48,6 +48,9 @@ class FGAME_CALL FGameV2 {
 		/* This variable for check condition looping */
 		bool StartLoopingEvent = false;
 
+		/* This variable for get what's the init library */
+		std::vector<unsigned int> what_init;
+
 	/* Public for helper */
 	public:
 		/* This variable for helper get information */

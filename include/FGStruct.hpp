@@ -24,6 +24,7 @@
 
 /* Include header library SDL2 */
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_net.h>
 
 /* Include header in include directory from this project */
 #include "FGBegin.hpp"
@@ -54,7 +55,7 @@ struct FGAME_CALL FG_Color {
 /* This structure for setup true type font
  * this will be convert into the font
  */
-struct FG_TTF {
+struct FGAME_CALL FG_TTF {
 	FG_Color color;
 	std::string text;
 	std::string fontFamily;
@@ -70,6 +71,14 @@ struct FGAME_CALL FGData_System {
 	SDL_Window   *window;
 	SDL_Renderer *render;
 	SDL_Event     event;
+};
+
+/* This structure for setup connection
+ * This using SDL2 net variable
+ */
+struct FGAME_CALL FG_Net {
+	TCPsocket socket;
+	IPaddress ip;
 };
 
 #endif /* _FGAME_STRUCTURE_HEADER_ */

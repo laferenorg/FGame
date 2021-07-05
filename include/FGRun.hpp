@@ -32,6 +32,7 @@
 #include "FGDraw.hpp"
 #include "FGSound.hpp"
 #include "FGTTF.hpp"
+#include "FGNet.hpp"
 
 class FGAME_CALL FGRun {
 	/* Public variable for helper in future */
@@ -50,6 +51,9 @@ class FGAME_CALL FGRun {
 
 		/* This variable for helping in true type font or TTF */
 		FGTTF TTF;
+
+		/* This variable for helping in connection */
+		FGNet Net;
 
 	/* Public function for using in future too */
 	public:

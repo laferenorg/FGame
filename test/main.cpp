@@ -11,7 +11,7 @@ FGWav* bullet;
 int main(int argc, char const *argv[])
 {
 	/* Setup */
-	FGameV2 game({ FG_INIT, FG_IMAGE, FG_MIXER }, "FGame");
+	FGameV2 game({ FG_INIT, FG_IMAGE_INIT, FG_MIXER_INIT }, "FGame");
 	game.SetIcon("assets/icon.png");
 	game.SetSize(400, 200);
 	game.SetPosition();
@@ -27,6 +27,9 @@ int main(int argc, char const *argv[])
 	/* Setup sound effect */
 	bullet = game.Run.Sound.wav("assets/shot.wav", 128, FG_THIS_DEFAULT(game));
 
+	/* Make you're ears bumrrr */
+	bullet->play();
+
 	/* Start looping */
 	game.StartLooping(
 	/* Handle Event function */
@@ -36,7 +39,7 @@ int main(int argc, char const *argv[])
 	},
 	/* Update function */
 	[](FGameV2* back) {
-		bullet->play();
+		/* Just like fuck */
 		back->Run.Set.SetRectPosition(rectPlayer, rectPlayer.x + 2, rectPlayer.y);
 		back->Run.Draw.Rect({ 255, 255, 255 }, rectPlayer, false, FG_THIS_POINTER(back));
 		back->Run.Image.Render(player1, rectPlayer, false, FG_THIS_POINTER(back));
