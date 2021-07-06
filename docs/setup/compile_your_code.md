@@ -42,7 +42,8 @@ After you have installed it on your computer, you can now follow the instruction
 
 #### Windows
 You just need to configure the preprocessor: `SDL_MAIN_HANDLED`. 
-And also linking to static library: `fgame.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2_net.lib`.
+And also linking to static library: `fgame.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;`
+`SDL2_mixer.lib;SDL2_ttf.lib;SDL2_net.lib`.
 And well, you just need to compile the code. And run
 
 ### Result
