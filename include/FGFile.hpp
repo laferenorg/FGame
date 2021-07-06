@@ -19,50 +19,36 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN C
  */
-#ifndef _FGAME_RUN_HEADER_
-#define _FGAME_RUN_HEADER_
+#ifndef _FGAME_FILE_HEADER_
+#define _FGAME_FILE_HEADER_
 
-/* Include header library SDL2 */
-#include <SDL2/SDL.h>
+/* Include header C++ */
+#include <vector>
 
 /* Include header in include directory from this project */
 #include "FGBegin.hpp"
-#include "FGImage.hpp"
-#include "FGSet.hpp"
-#include "FGDraw.hpp"
-#include "FGSound.hpp"
-#include "FGTTF.hpp"
-#include "FGNet.hpp"
-#include "FGFile.hpp"
+#include "FGStruct.hpp"
 
-class FGAME_CALL FGRun {
-	/* Public variable for helper in future */
+class FGAME_CALL FGFile {
+	/* This class no have private section */
+
+	/* Public function it's for used in future */
 	public:
-		/* This variable helper in image */
-		FGImage Image;
+		/* This function for check exist file */
+		bool ExistFile(std::string path,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 
-		/* This variable helper in rectangle */
-		FGSet Set;
+		/* This function for count file on folder */
+		unsigned int CountFile(std::string path,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 
-		/* This variable helping for draw something */
-		FGDraw Draw;
+		/* This function for check exist folder */
+		bool ExistFolder(std::string path,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 
-		/* This variable helping for manage sound */
-		FGSound Sound;
-
-		/* This variable for helping in true type font or TTF */
-		FGTTF TTF;
-
-		/* This variable for helping in connection */
-		FGNet Net;
-
-		/* This variable for helping in file management */
-		FGFile File;
-
-	/* Public function for using in future too */
-	public:
-		/* Function Delay */
-		void Delay(Uint32 milisecond);
+		/* This function for get list of file on folder */
+		std::vector<std::string> List(std::string path,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
-#endif /* _FGAME_RUN_HEADER_ */
+#endif /* _FGAME_FILE_HEADER_ */

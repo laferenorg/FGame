@@ -55,6 +55,9 @@
 /* This class for helping in Net connection */
 #include "FGNet.hpp"
 
+/* This class for helping in File Management */
+#include "FGFile.hpp"
+
 /* This class it's for using in future, like function delay */
 #include "FGRun.hpp"
 

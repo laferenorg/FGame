@@ -26,6 +26,20 @@ PKG_SEARCH_MODULE(SDL2IMAGE REQUIRED SDL2_mixer >= 2.0.0)
 PKG_SEARCH_MODULE(SDL2IMAGE REQUIRED SDL2_net   >= 2.0.0)
 PKG_SEARCH_MODULE(SDL2IMAGE REQUIRED SDL2_ttf   >= 2.0.0)
 
+## Check the third time
+## test that filesystem header actually is there and works
+try_compile(HaveFileSystem "${CMAKE_BINARY_DIR}/temp" 
+			"${CMAKE_SOURCE_DIR}/test/filesystem.cpp" 
+            CMAKE_FLAGS -DCMAKE_CXX_STANDARD=17 -DCMAKE_CXX_STANDARD_REQUIRED=ON
+            LINK_LIBRARIES stdc++fs)
+if(HaveFileSystem)
+	## The compiler support std::filesystem
+    message(STATUS "Compiler has filesystem support")
+else()
+	## The compiler not support for library std::filesystem
+    message(FATAL_ERROR "Compiler is missing filesystem capabilities")
+endif(HaveFileSystem)
+
 ## Include directory
 include_directories("include/")
 include_directories(${SDL2_INCLUDE_DIRS})
@@ -45,4 +59,5 @@ add_library(${PROJECT_NAME} SHARED ${SRCS})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 TARGET_LINK_LIBRARIES(${PROJECT_NAME}
 	${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES} ${SDL2TTF_LIBRARIES}
-	${SDL2NET_LIBRARIES} ${SDL2MIXER_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+	${SDL2NET_LIBRARIES} ${SDL2MIXER_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT}
+	stdc++fs)
