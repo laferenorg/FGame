@@ -5,6 +5,7 @@ And this requires SDL2 dependencies.
 
 ## Platform
 Platforms that can be used for this framework are as shown in the table below.
+
 | Version         | Windows            | Linux              |
 |:----------------|:-------------------|:-------------------|
 | V1.0.0          | :x:                | :white_check_mark: |
