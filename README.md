@@ -11,3 +11,9 @@ Platforms that can be used for this framework are as shown in the table below.
 | V1.0.0          | NO                 | YES                |
 | V1.1.1 - v1.3.2 | YES                | YES                |
 | V2.0.0          | YES                | YES                |
+
+## Version 2
+### Update
+You can see what has been updated and added that has been done in the update version 2 of fgame.
+- Changes in usage in the use of the framework.
+- Additional features, including: File Management and Networking
