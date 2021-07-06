@@ -37,7 +37,7 @@ linux and windows operating system that uses visual studio.
 #### Linux
 After you have installed it on your computer, you can now follow the instructions below.
 ```bash
- $ g++ source.cpp -lfgame -o output
+ $ g++ source.cpp -lfgame -lSDL2 -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lSDL2_net -o output
 ```
 
 #### Windows
