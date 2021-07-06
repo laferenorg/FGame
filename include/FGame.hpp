@@ -25,47 +25,40 @@
 /* Include header library SDL2 */
 #include <SDL2/SDL.h>
 
-#if defined(__cplusplus) && (defined(_WIN32) || defined(_WIN64))
-	extern "C" {
-#endif
-		/* Include header from this include directory project */
-		#include "FGBegin.hpp"
+/* Include header from this include directory project */
+#include "FGBegin.hpp"
 
-		/* this header for flags in init */
-		#include "FGFlags.hpp"
+/* this header for flags in init */
+#include "FGFlags.hpp"
 
-		/* this header for structure */
-		#include "FGStruct.hpp"
+/* this header for structure */
+#include "FGStruct.hpp"
 
-		/* This class it's for get information like ticks */
-		#include "FGGet.hpp"
+/* This class it's for get information like ticks */
+#include "FGGet.hpp"
 
-		/* This section header for macro, for helper */
-		#include "FGMacro.hpp"
+/* This section header for macro, for helper */
+#include "FGMacro.hpp"
 
-		/* This class it's for using in future, like load image */
-		#include "FGImage.hpp"
+/* This class it's for using in future, like load image */
+#include "FGImage.hpp"
 
-		/* This class it's for using in future, for manage or variable of sound */
-		#include "FGSound.hpp"
+/* This class it's for using in future, for manage or variable of sound */
+#include "FGSound.hpp"
 
-		/* This class for helping set any data */
-		#include "FGSet.hpp"
+/* This class for helping set any data */
+#include "FGSet.hpp"
 
-		/* This class for helping in TTF */
-		#include "FGTTF.hpp"
+/* This class for helping in TTF */
+#include "FGTTF.hpp"
 
-		/* This class for helping in Net connection */
-		#include "FGNet.hpp"
+/* This class for helping in Net connection */
+#include "FGNet.hpp"
 
-		/* This class it's for using in future, like function delay */
-		#include "FGRun.hpp"
+/* This class it's for using in future, like function delay */
+#include "FGRun.hpp"
 
-		/* This class it's all management of this project */
-		#include "FGameV2.hpp"
-
-#if defined(__cplusplus) && (defined(_WIN32) || defined(_WIN64))
-	}
-#endif
+/* This class it's all management of this project */
+#include "FGameV2.hpp"
 
 #endif /* _FGAME_HEADER_ */
