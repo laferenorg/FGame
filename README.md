@@ -1,4 +1,3 @@
-![icon](https://github.com/laferenorg/FGame/blob/version-2-development/icon.png?raw=true "Icon Official This Framework")
 ## About
 Game is a 2D game framework that keeps things simple.
 And it can be used on Linux and Windows platforms.
