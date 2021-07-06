@@ -8,6 +8,6 @@ Platforms that can be used for this framework are as shown in the table below.
 
 | Version         | Windows            | Linux              |
 |:----------------|:-------------------|:-------------------|
-| V1.0.0          | :x:                | :white_check_mark: |
-| V1.1.1 - v1.3.2 | :white_check_mark: | :white_check_mark: |
-| V2.0.0          | :white_check_mark: | :white_check_mark: |
+| V1.0.0          | NO                 | YES                |
+| V1.1.1 - v1.3.2 | YES                | YES                |
+| V2.0.0          | YES                | YES                |
