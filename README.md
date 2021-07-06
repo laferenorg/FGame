@@ -17,3 +17,10 @@ Platforms that can be used for this framework are as shown in the table below.
 You can see what has been updated and added that has been done in the update version 2 of fgame.
 - Changes in usage in the use of the framework.
 - Additional features, including: File Management and Networking
+
+### Dependencies
+The dependencies needed to compile or use are as below.
+- C++ Compiler (GCC (**g++**), Visual C++ (**cl**), Clang (**clang++**), Or it could be another)
+- C++ Compiler (must be able to use `C++ Version 17`, and can use **filesystem** libraries)
+- SDL2 (SDL2, SDL2_main, SDL2_mixer, SDL2_image, SDL2_net)
+- And must be able to link to the **thread** library
