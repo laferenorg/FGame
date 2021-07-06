@@ -24,3 +24,6 @@ The dependencies needed to compile or use are as below.
 - C++ Compiler (must be able to use `C++ Version 17`, and can use **filesystem** libraries)
 - SDL2 (SDL2, SDL2_main, SDL2_mixer, SDL2_image, SDL2_net)
 - And must be able to link to the **thread** library
+
+### Next Page
+> [Documentation](./docs/documentation.html)
