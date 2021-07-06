@@ -22,6 +22,11 @@
 #ifndef _FGAME_MACRO_HEADER_
 #define _FGAME_MACRO_HEADER_
 
+/* This macro for giving version of This Project Version */
+#ifndef FG_VERSION
+	#define FG_VERSION "2.0.0"
+#endif
+
 /* This macro it's for giving into parameter */
 #ifndef FG_THIS_POINTER
 	#define FG_THIS_POINTER(This) \
