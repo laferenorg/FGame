@@ -7,7 +7,7 @@
 ### Description
 This section calls for helpers to help you load, render, and so on.
 You can see anything.
-- [Delay](./run/delay.html)
+- [Delay](./delay.html)
 - [Image](../image/image.html)
 - [Set](../set/set.html)
 - [Draw](../draw/draw.html)
