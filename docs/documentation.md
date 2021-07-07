@@ -32,7 +32,7 @@ Category list for documentation, you can see all the list below:
   - [File](./file/file.html)
 - [Image](./image/image.html)
   - [Load](./image/load.html)
-  - [Render](./image/fgame.html)
+  - [Render](./image/render.html)
 - [Set](./set/set.html)
   - [Set Rect Size](./set/set_rect_size.html)
   - [Set Rect Position](./set/set_rect_position.html)
