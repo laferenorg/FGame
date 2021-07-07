@@ -16,7 +16,7 @@ The two float type heights are also the same as the previous width, this aims to
 the height of the window.
 
 ### Example
-```
+```cpp
   /* Include header C++ */
   #include <iostream>
   #include <string>
