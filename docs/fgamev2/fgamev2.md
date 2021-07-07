@@ -20,5 +20,5 @@ You can see what features can be controlled.
 - [Set Position](./set_position.html)
 - [Have Error](./have_error.html)
 - [MessageError](./message_error.html)
-- [Get](./get.html)
-- [Run](./run.html)
+- [Get](../get/get.html)
+- [Run](../run/run.html)
