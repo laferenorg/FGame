@@ -37,7 +37,7 @@ Okay here there is only the struct color parameter [Struct Color](../struct/fg_c
   }
 
   int main(int argc, const char* argv[]) {
-    FGameV2 Manage = FGameV2({ FG_INIT }, "Compile You're Code");
+    FGameV2 Manage = FGameV2({ FG_INIT }, "Set Background Color");
 
     Manage.StartLooping(handleEvent, update, 60);
     return 0;
