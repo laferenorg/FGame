@@ -28,7 +28,7 @@ Both parameters use the struct [FG_Rect](../struct/fg_rect.html).
   #include <FGame.hpp>
 
   int main(int argc, const char* argv[]) {
-    FGameV2 Manage = FGameV2({ FG_INIT }, "Compile You're Code");
+    FGameV2 Manage = FGameV2({ FG_INIT }, "Get Collide");
     
     /* Make rectangle player */
     FG_Rect player;
