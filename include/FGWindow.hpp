@@ -19,8 +19,8 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN C
  */
-#ifndef _FGAME_GET_HEADER_
-#define _FGAME_GET_HEADER_
+#ifndef _FGAME_WINDOW_HEADER_
+#define _FGAME_WINDOW_HEADER_
 
 /* Include header library SDL2 */
 #include <SDL2/SDL.h>
@@ -28,22 +28,20 @@
 /* Include header in include directory from this project */
 #include "FGBegin.hpp"
 #include "FGStruct.hpp"
-#include "FGWindow.hpp"
 
-class FGAME_CALL FGGet {
-	/* This class no have private section */
-	/* Public variable for used in future */
+class FGAME_CALL FGWindow {
+	/* This class not have private section */
+
+	/* Public function for helper window */
+	/* This class for get information of window */
 	public:
-		/* This variable for get information of window */
-		FGWindow Window;
+		/* This function for get position of window */
+		void Position(int& x, int& y,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 
-	/* Public function for get information */
-	public:
-		/* Function get tick */
-		Uint32 Ticks();
-
-		/* This function for get collider */
-		bool Collide(FG_Rect& rectFirst, FG_Rect& rectSecond);
+		/* This function for get Size of window */
+		void Sizes(int& width, int& height,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
-#endif /* _FGAME_GET_HEADER_ */
+#endif /* _FGAME_WINDOW_HEADER_ */
