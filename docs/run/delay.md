@@ -23,14 +23,6 @@ There is only one parameter that is input milliseconds.
   /* Include header FGame */
   #include <FGame.hpp>
 
-  void handleEvent(SDL_Event& event, FGameV2* fgame) {
-    /* Code you're script here */
-  }
-
-  void update(FGameV2* fgame) {
-    /* Code you're script here */
-  }
-
   int main(int argc, const char* argv[]) {
     FGameV2 Manage = FGameV2({ FG_INIT }, "Run Delay");
 
