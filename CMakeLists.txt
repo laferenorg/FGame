@@ -49,7 +49,8 @@ include_directories(${SDL2IMAGE_LIBRARIES})
 include_directories(${SDL2MIXER_LIBRARIES})
 
 ## Use all the *.cpp files we found under this folder for the project
-FILE(GLOB SRCS "src/*.cpp")
+FILE(GLOB SRCS "src/*.cpp" "src/Get/*.cpp" 
+			   "src/Run/*.cpp" "src/Animation/*.cpp")
 
 ## Adding FLags in compile
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D BUILD_LIBRARY_FGAME")
