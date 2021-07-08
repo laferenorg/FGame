@@ -42,6 +42,7 @@ endif(HaveFileSystem)
 
 ## Include directory
 include_directories("include/")
+include_directories("fgame/")
 include_directories(${SDL2_INCLUDE_DIRS})
 include_directories(${SDL2TTF_LIBRARIES})
 include_directories(${SDL2NET_LIBRARIES})

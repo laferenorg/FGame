@@ -19,6 +19,10 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN C
  */
+
+/* Include pre compile header */
+#include "pch.h"
+
 /* Include header C++ */
 #include <iostream>
 #include <vector>

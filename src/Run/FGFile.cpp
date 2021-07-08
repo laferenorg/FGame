@@ -19,6 +19,10 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN C
  */
+
+/* Include pre compile header */
+#include "pch.h"
+
 /* Include header C++ */
 #include <iostream>
 #include <string>
@@ -158,7 +162,7 @@ std::vector<std::string> FGFile::List(std::string path,
 			std::filesystem::is_directory(TempPath)) {
 			/* If all good */
 			for (auto& count : std::filesystem::directory_iterator(path)) {
-				std::string nameFile = count.path();
+				std::string nameFile = count.path().u8string();
 				ListOfFile.push_back(nameFile);
 			}
 		} else {
