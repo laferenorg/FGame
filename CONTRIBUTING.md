@@ -58,10 +58,10 @@ And can be sure that your code can be run in the target platform in this project
   ```cpp
     #include <SDL2/SDL.h>
   ```
-  ![Setup Include Directory](https://github.com/laferenorg/FGame/blob/version-2-development/docs/contribute/assets/SetupIncludeVS.jpg?raw=true)
+  <kbd><kbd>FGame -> Property -> C/C++ -> General</kbd> -> <kbd>Additional Include Directories</kbd></kbd>: Change `$(SolutionDir)SDL2\include;`
   
 - #### Setup Library Directory
   You have to make it match the file format **.lib**. 
   And you should have the central SDL2 library, mixer, image, net, and ttf.
   You have to replace or use the structure I just said.
-  ![Setup Library Directory](https://github.com/laferenorg/FGame/blob/version-2-development/docs/contribute/assets/SetupLibraryVS.jpg?raw=true)
+  <kbd><kbd>FGame -> Property -> Linker -> General</kbd> -> <kbd>Additional Library Directories</kbd></kbd>: Change `$(SolutionDir)SDL2\lib;`
