@@ -33,13 +33,13 @@ class FGAME_CALL FGTTF {
 	/* Public function for setup or using */
 	public:
 		/* This for load font */
-		void load(FG_TTF& font, std::string text, std::string path_ttf,
-			FG_Color color, float size, FGData_System& system, std::string& message_error, 
-			bool& errorEvent);
+		void load(FG_TTF& font, const std::string text, const std::string path_ttf,
+			const FG_Color color, const float size, const FGData_System& system, 
+			std::string& message_error, bool& errorEvent);
 
 		/* This function for render the ttf */
-		void render(FG_TTF& font, FG_Rect& rect,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void render(const FG_TTF& font, const FG_Rect& rect,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_TTF_HEADER_ */

@@ -37,7 +37,7 @@
 
 /* Handle function create server */
 void FGNet::server(FG_Net& net, int port,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -63,7 +63,7 @@ void FGNet::server(FG_Net& net, int port,
 
 /* Handle function create client */
 void FGNet::client(FG_Net& net, std::string host, int port,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -89,7 +89,7 @@ void FGNet::client(FG_Net& net, std::string host, int port,
 
 /* Handle function accept someone */
 void FGNet::accept(FG_Net& net_server, FG_Net& net_client,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -106,7 +106,7 @@ void FGNet::accept(FG_Net& net_server, FG_Net& net_client,
 
 /* Handle function send data */
 void FGNet::send(FG_Net& net, const void* data_send, const unsigned int data_len,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -123,7 +123,7 @@ void FGNet::send(FG_Net& net, const void* data_send, const unsigned int data_len
 
 /* Handle function send data */
 void FGNet::recv(FG_Net& net, const void* data_recv, const unsigned int data_len,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -139,7 +139,7 @@ void FGNet::recv(FG_Net& net, const void* data_recv, const unsigned int data_len
 }
 
 void FGNet::close(FG_Net& net, const void* data_send, const unsigned int data_len,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */

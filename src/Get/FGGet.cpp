@@ -33,13 +33,13 @@
 #include "Get/FGGet.hpp"
 
 /* Handle function get ticks */
-Uint32 FGGet::Ticks() {
+Uint32 FGGet::Ticks() const {
 	/* TODO: Just using SDL2 function for get ticks */
 	return SDL_GetTicks();
 }
 
 /* Handle function Collide */
-bool FGGet::Collide(FG_Rect& rectFirst, FG_Rect& rectSecond) {
+bool FGGet::Collide(const FG_Rect& rectFirst, const FG_Rect& rectSecond) {
 	/* Setup Variable */
 	SDL_Rect rect1, rect2;
 

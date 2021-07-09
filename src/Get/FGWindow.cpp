@@ -34,7 +34,7 @@
 #include "FGStruct.hpp"
 
 void FGWindow::Position(int& x, int& y,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -50,7 +50,7 @@ void FGWindow::Position(int& x, int& y,
 }
 
 void FGWindow::Sizes(int& width, int& height,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */

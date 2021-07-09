@@ -33,8 +33,8 @@
 #include "Run/FGDraw.hpp"
 
 /* Handle draw line function */
-void FGDraw::Rect(FG_Color color, FG_Rect& rect, bool fill,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGDraw::Rect(const FG_Color color, const FG_Rect& rect, const bool fill,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error */
 	if(errorEvent) {
 		/* if have error */
@@ -70,8 +70,10 @@ void FGDraw::Rect(FG_Color color, FG_Rect& rect, bool fill,
 }
 
 /* Handle function draw line */
-void FGDraw::Line(FG_Color color, float x1, float y1, float x2, float y2,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGDraw::Line(const FG_Color color, 
+	const float x1, const float y1, 
+	const float x2, const float y2,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error */
 	if(errorEvent) {
 		/* if have error */

@@ -38,9 +38,9 @@
 #include <SDL2/SDL_ttf.h>
 
 /* Handle function load ttf */
-void FGTTF::load(FG_TTF& font, std::string text, std::string path_ttf,
-	FG_Color color, float size, FGData_System& system, std::string& message_error, 
-	bool& errorEvent) {
+void FGTTF::load(FG_TTF& font, const std::string text, const std::string path_ttf,
+	const FG_Color color, const float size, const FGData_System& system, 
+	std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -96,8 +96,8 @@ void FGTTF::load(FG_TTF& font, std::string text, std::string path_ttf,
 }
 
 /* Handle function render ttf */
-void FGTTF::render(FG_TTF& font, FG_Rect& rect, 
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGTTF::render(const FG_TTF& font, const FG_Rect& rect, 
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */

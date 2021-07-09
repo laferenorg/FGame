@@ -35,20 +35,20 @@ class FGAME_CALL FGFile {
 	/* Public function it's for used in future */
 	public:
 		/* This function for check exist file */
-		bool ExistFile(std::string path,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		bool ExistFile(const std::string path,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for count file on folder */
-		unsigned int CountFile(std::string path,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		unsigned int CountFile(const std::string path,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for check exist folder */
-		bool ExistFolder(std::string path,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		bool ExistFolder(const std::string path,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for get list of file on folder */
-		std::vector<std::string> List(std::string path,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		std::vector<std::string> List(const std::string path,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_FILE_HEADER_ */

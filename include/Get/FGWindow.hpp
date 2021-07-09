@@ -37,11 +37,11 @@ class FGAME_CALL FGWindow {
 	public:
 		/* This function for get position of window */
 		void Position(int& x, int& y,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for get Size of window */
 		void Sizes(int& width, int& height,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_WINDOW_HEADER_ */

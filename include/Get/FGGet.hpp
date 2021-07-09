@@ -40,10 +40,10 @@ class FGAME_CALL FGGet {
 	/* Public function for get information */
 	public:
 		/* Function get tick */
-		Uint32 Ticks();
+		Uint32 Ticks() const;
 
 		/* This function for get collider */
-		bool Collide(FG_Rect& rectFirst, FG_Rect& rectSecond);
+		bool Collide(const FG_Rect& rectFirst, const FG_Rect& rectSecond);
 };
 
 #endif /* _FGAME_GET_HEADER_ */

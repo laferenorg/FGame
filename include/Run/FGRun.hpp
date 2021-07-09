@@ -62,7 +62,7 @@ class FGAME_CALL FGRun {
 	/* Public function for using in future too */
 	public:
 		/* Function Delay */
-		void Delay(Uint32 milisecond);
+		void Delay(const Uint32 milisecond) const;
 };
 
 #endif /* _FGAME_RUN_HEADER_ */

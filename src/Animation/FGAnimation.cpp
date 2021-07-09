@@ -35,8 +35,8 @@
 #include "Animation/FGAnimation.hpp"
 
 /* Handle function add animation */
-void FGAnimation::AddAnimation(std::string name_animation,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGAnimation::AddAnimation(const std::string name_animation,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -80,8 +80,8 @@ void FGAnimation::AddAnimation(std::string name_animation,
 }
 
 /* Handle function add frame First */
-void FGAnimation::AddFrame(std::string name_animation, FG_Image& frame,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGAnimation::AddFrame(const std::string name_animation, const FG_Image& frame,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -123,8 +123,8 @@ void FGAnimation::AddFrame(std::string name_animation, FG_Image& frame,
 }
 
 /* Handle function add frame Seconds */
-void FGAnimation::AddFrame(unsigned int id_animation, FG_Image& frame,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGAnimation::AddFrame(const unsigned int id_animation, const FG_Image& frame,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -153,8 +153,8 @@ void FGAnimation::AddFrame(unsigned int id_animation, FG_Image& frame,
 }
 
 /* Handle function get animation id */
-unsigned int FGAnimation::GetAnimationID(std::string name_animation,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+unsigned int FGAnimation::GetAnimationID(const std::string name_animation,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Setup variable return */
 	unsigned int ResultSearch = 0;
 
@@ -202,7 +202,7 @@ unsigned int FGAnimation::GetAnimationID(std::string name_animation,
 }
 
 /* Handle function get width */
-float FGAnimation::GetWidth(FGData_System& system, 
+float FGAnimation::GetWidth(const FGData_System& system, 
 	std::string& message_error, bool& errorEvent) {
 	/* Setup result variable */
 	float widthResult = 0;
@@ -224,7 +224,7 @@ float FGAnimation::GetWidth(FGData_System& system,
 }
 
 /* Handle function get width */
-float FGAnimation::GetHeight(FGData_System& system, 
+float FGAnimation::GetHeight(const FGData_System& system, 
 	std::string& message_error, bool& errorEvent) {
 	/* Setup result variable */
 	float heightResult = 0;
@@ -246,7 +246,7 @@ float FGAnimation::GetHeight(FGData_System& system,
 }
 
 /* Handle function get frame */
-FG_Image& FGAnimation::GetFrame(FGData_System& system, 
+FG_Image& FGAnimation::GetFrame(const FGData_System& system, 
 	std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
@@ -261,8 +261,8 @@ FG_Image& FGAnimation::GetFrame(FGData_System& system,
 }
 
 /* Handle function Update */
-void FGAnimation::Update(bool end_on_last,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGAnimation::Update(const bool end_on_last,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -293,8 +293,8 @@ void FGAnimation::Update(bool end_on_last,
 }
 
 /* Handle function remove animation using id */
-void FGAnimation::RemoveAnimation(std::string name_animation, FG_Image& frame,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGAnimation::RemoveAnimation(const std::string name_animation,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */
@@ -336,8 +336,8 @@ void FGAnimation::RemoveAnimation(std::string name_animation, FG_Image& frame,
 }
 
 /* Handle function remove animation using id */
-void FGAnimation::RemoveAnimation(unsigned int id_animation, FG_Image& frame,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGAnimation::RemoveAnimation(const unsigned int id_animation,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Check if have error before */
 	if(errorEvent) {
 		/* if have error */

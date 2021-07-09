@@ -37,11 +37,11 @@ class FGAME_CALL FGWav {
 	/* Public function */
 	public:
 		/* Contructor for initialize */
-	    FGWav(const std::string& path, int volume,
-	    	FGData_System& system, std::string& message_error, bool& errorEvent);
+	    FGWav(const std::string& path, const int volume,
+	    	const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 	    /* This for play the sound */
-	    void play();
+	    void play() const;
 
 	/* Private variable */
 	private:
@@ -53,11 +53,11 @@ class FGAME_CALL FGMusic {
 	/* Public function */
 	public:
 		/* Contructor for initialize */
-	    FGMusic(const std::string& path, int volume,
-	    	FGData_System& system, std::string& message_error, bool& errorEvent);
+	    FGMusic(const std::string& path, const int volume,
+	    	const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 	    /* This for play the sound */
-	    void play(int loops);
+	    void play(const int loops) const;
 
 	/* Private variable */
 	private:
@@ -70,12 +70,12 @@ class FGAME_CALL FGSound {
 	/* Public function be used to manage sound */
 	public:
 		/* This function it's used for load FGWav variable */
-		FGWav* wav(std::string path, int volume,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		FGWav* wav(const std::string path, const int volume,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function it's used for load FGSound variable */
-		FGMusic* music(std::string path, int volume,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		FGMusic* music(const std::string path, const int volume,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_SOUND_HEADER_ */

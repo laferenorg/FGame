@@ -38,8 +38,8 @@
 #include "FGStruct.hpp"
 
 /* Handle function FGWav */
-FGWav::FGWav(const std::string &path, int volume,
-	FGData_System& system, std::string& message_error, bool& errorEvent) 
+FGWav::FGWav(const std::string &path, const int volume,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) 
 	: chunk(Mix_LoadWAV(path.c_str()), Mix_FreeChunk) {
 	/* Check if have error before */
 	if(errorEvent) {
@@ -78,15 +78,15 @@ FGWav::FGWav(const std::string &path, int volume,
 }
 
 /* Handle function wav play */
-void FGWav::play() {
+void FGWav::play() const {
 	/* -1 here means we let SDL_mixer pick the first channel that is free */
 	/* If no channel is free it'll return an err code. */
 	Mix_PlayChannel(-1, chunk.get(), 0);
 }
 
 /* Handle function FGMusic */
-FGMusic::FGMusic(const std::string &path, int volume,
-	FGData_System& system, std::string& message_error, bool& errorEvent) 
+FGMusic::FGMusic(const std::string &path, const int volume,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) 
 	: chunk(Mix_LoadMUS(path.c_str()), Mix_FreeMusic) {
 	/* Check if have error before */
 	if(errorEvent) {
@@ -121,22 +121,22 @@ FGMusic::FGMusic(const std::string &path, int volume,
 }
 
 /* Handle function play music */
-void FGMusic::play(int loops) {
+void FGMusic::play(const int loops) const {
 	/* Just play music */
 	Mix_PlayMusic(chunk.get(), loops);
 }
 
 /* Handle function wav */
-FGWav* FGSound::wav(std::string path, int volume,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+FGWav* FGSound::wav(const std::string path, const int volume,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* TODO: Just create init and return */
 	return new FGWav(path, (volume > 128) ? 128 : volume, 
 		system, message_error, errorEvent);
 }
 
 /* Handle function music */
-FGMusic* FGSound::music(std::string path, int volume,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+FGMusic* FGSound::music(const std::string path, const int volume,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* TODO: Just create init and return */
 	return new FGMusic(path, (volume > 128) ? 128 : volume, 
 		system, message_error, errorEvent);

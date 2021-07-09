@@ -59,45 +59,45 @@ class FGAME_CALL FGAnimation {
 		/* This section function for adding animation */
 		/* This function for adding animation group */
 		void AddAnimation(std::string name_animation,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for adding frame in group animation using name */
-		void AddFrame(std::string name_animation, FG_Image& frame,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void AddFrame(std::string name_animation, const FG_Image& frame,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for adding frame in group animation using id */
-		void AddFrame(unsigned int id_animation, FG_Image& frame,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void AddFrame(const unsigned int id_animation, const FG_Image& frame,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This for get information or data, etc*/
 		/* This function for get animation id from name */
 		unsigned int GetAnimationID(std::string name_animation,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for get width using frame and animation now */
-		float GetWidth(FGData_System& system, 
+		float GetWidth(const FGData_System& system, 
 			std::string& message_error, bool& errorEvent);
 
 		/* This function for get height using frame and animation now */
-		float GetHeight(FGData_System& system, 
+		float GetHeight(const FGData_System& system, 
 			std::string& message_error, bool& errorEvent);
 
 		/* This function for get Image using frame and animation now */
-		FG_Image& GetFrame(FGData_System& system, 
+		FG_Image& GetFrame(const FGData_System& system, 
 			std::string& message_error, bool& errorEvent);
 
 		/* This function for update */
-		void Update(bool end_on_last,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void Update(const bool end_on_last,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This section for remove animation */
 		/* This for remove animation using name */
-		void RemoveAnimation(std::string name_animation, FG_Image& frame,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void RemoveAnimation(const std::string name_animation,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This for remove animation using ID */
-		void RemoveAnimation(unsigned int id_animation, FG_Image& frame,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void RemoveAnimation(const unsigned int id_animation,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_ANIMATION_HEADER_ */

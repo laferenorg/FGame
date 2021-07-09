@@ -31,14 +31,14 @@
 #include "Run/FGSet.hpp"
 
 /* Handle function set rectangle size */
-void FGSet::SetRectSize(FG_Rect& rect, float width, float height) {
+void FGSet::SetRectSize(FG_Rect& rect, const float width, const float height) {
 	/* TODO: Just replace data in rect */
 	rect.width = width;
 	rect.height = height;
 }
 
 /* Handle function set rectangle position */
-void FGSet::SetRectPosition(FG_Rect& rect, float x, float y) {
+void FGSet::SetRectPosition(FG_Rect& rect, const float x, const float y) {
 	/* TODO: Just replace data in rect */
 	rect.x = x;
 	rect.y = y;

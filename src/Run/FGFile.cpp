@@ -35,8 +35,8 @@
 #include "Run/FGFile.hpp"
 
 /* Handle function Exist File */
-bool FGFile::ExistFile(std::string path,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+bool FGFile::ExistFile(const std::string path,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Setup variable return */
 	bool FileExist = false;
 
@@ -72,8 +72,8 @@ bool FGFile::ExistFile(std::string path,
 }
 
 /* Handle function for Count File */
-unsigned int FGFile::CountFile(std::string path,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+unsigned int FGFile::CountFile(const std::string path,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	unsigned int CountFileVariable = 0;
 
 	/* Check if have error before */
@@ -111,8 +111,8 @@ unsigned int FGFile::CountFile(std::string path,
 }
 
 /* Handle function for Check Folder */
-bool FGFile::ExistFolder(std::string path,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+bool FGFile::ExistFolder(const std::string path,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Setup variable exist */
 	bool ExistFolder = false;
 
@@ -141,8 +141,8 @@ bool FGFile::ExistFolder(std::string path,
 }
 
 /* Handle function for get all list file on Folder */
-std::vector<std::string> FGFile::List(std::string path,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+std::vector<std::string> FGFile::List(const std::string path,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Setup vector */
 	std::vector<std::string> ListOfFile;
 

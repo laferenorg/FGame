@@ -33,7 +33,7 @@
 #include "Run/FGRun.hpp"
 
 /* Handle function delay */
-void FGRun::Delay(Uint32 milisecond) {
+void FGRun::Delay(const Uint32 milisecond) const {
 	/* TODO: Just using function SDL2 for delay */
 	SDL_Delay(milisecond);
 }

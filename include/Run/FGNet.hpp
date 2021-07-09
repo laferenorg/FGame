@@ -33,27 +33,27 @@ class FGAME_CALL FGNet {
 	public:
 		/* This function create server */
 		void server(FG_Net& net, int port,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function create client */
 		void client(FG_Net& net, std::string host, int port,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function accept data */
 		void accept(FG_Net& net_server, FG_Net& net_client,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function it's used for send data */
 		void send(FG_Net& net, const void* data_send, const unsigned int data_len,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function it's used for recv data */
 		void recv(FG_Net& net, const void* data_send, const unsigned int data_len,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function it's close connection socket */
 		void close(FG_Net& net, const void* data_send, const unsigned int data_len,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_NET_HEADER_ */

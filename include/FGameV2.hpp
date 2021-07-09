@@ -62,8 +62,8 @@ class FGAME_CALL FGameV2 {
 	/* Public function for setup */
 	public:
 		/* Function Contructor */
-		FGameV2(std::vector<unsigned int> flags, std::string title,
-			Uint32 flagsWindow = 0);
+		FGameV2(std::vector<unsigned int> flags, const std::string title,
+			const Uint32 flagsWindow = 0);
 
 		/* Function Decontructor */
 		~FGameV2();
@@ -71,27 +71,27 @@ class FGAME_CALL FGameV2 {
 	/* Public function for settings */
 	public:
 		/* This function for set icon in window */
-		void SetIcon(std::string LocationIcon);
+		void SetIcon(const std::string LocationIcon);
 
 		/* This function for set size of window */
-		void SetSize(float width, float height);
+		void SetSize(const float width, const float height);
 
 		/* This function for set background color of window */
-		void SetBackground(FG_Color color);
+		void SetBackground(const FG_Color color);
 
 		/* This function for set position of window */
-		void SetPosition(float x = SDL_WINDOWPOS_CENTERED,
-			float y = SDL_WINDOWPOS_CENTERED);
+		void SetPosition(const float x = SDL_WINDOWPOS_CENTERED,
+			const float y = SDL_WINDOWPOS_CENTERED);
 
 	/* Public function for get information error */
 	public:
-		bool HaveError();
-		std::string MessageError();
+		bool HaveError() const;
+		std::string MessageError() const;
 
 	/* Public function for Start Looping */
 	public:
 		void StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2),
-			void(*update)(FGameV2* fgameV2), float fps);
+			void(*update)(FGameV2* fgameV2), const float fps);
 };
 
 #endif /* _FGAME_VERSION_2_HEADER_ */

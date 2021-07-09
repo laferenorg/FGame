@@ -35,12 +35,12 @@ class FGAME_CALL FGImage {
 	/* Public funtion using for feature */
 	public:
 		/* This function for load image, width, and height */
-		void Load(FG_Image& destination_image, std::string locationImage,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void Load(FG_Image& destination_image, const std::string locationImage,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for render image */
-		void Render(FG_Image& source_image, FG_Rect& rectSprite, bool flip,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void Render(const FG_Image& source_image, const FG_Rect& rectSprite, const bool flip,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_IMAGE_HEADER_ */

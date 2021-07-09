@@ -38,8 +38,8 @@
 #include "Run/FGImage.hpp"
 
 /* Handle load image function */
-void FGImage::Load(FG_Image& destination_image, std::string locationImage,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGImage::Load(FG_Image& destination_image, const std::string locationImage,
+	const FGData_System& system, std::string& message_error, bool& errorEvent) {
 	/* Setup variable check */
 	bool fileAlready = true;
 
@@ -71,8 +71,9 @@ void FGImage::Load(FG_Image& destination_image, std::string locationImage,
 }
 
 /* Handle function Render image */
-void FGImage::Render(FG_Image& source_image, FG_Rect& rectSprite, bool flip,
-	FGData_System& system, std::string& message_error, bool& errorEvent) {
+void FGImage::Render(const FG_Image& source_image, const FG_Rect& rectSprite, 
+	const bool flip, const FGData_System& system, 
+	std::string& message_error, bool& errorEvent) {
 	/* Check if have error */
 	if(errorEvent) {
 		/* if have error */

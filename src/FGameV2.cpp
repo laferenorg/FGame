@@ -42,8 +42,8 @@
 #include "Get/FGGet.hpp"
 
 /* Handle function contructor */
-FGameV2::FGameV2(std::vector<unsigned int> flags, std::string title,
-	Uint32 flagsWindow) {
+FGameV2::FGameV2(std::vector<unsigned int> flags, const std::string title,
+	const Uint32 flagsWindow) {
 	/* Setup variable flags for init window for SDL2 */
 	Uint32 flagsInit = 0;
 
@@ -201,7 +201,7 @@ FGameV2::~FGameV2() {
 
 /* Handle function Start Looping */
 void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2),
-	void(*update)(FGameV2* fgameV2), float fps) {
+	void(*update)(FGameV2* fgameV2), const float fps) {
 	/* Setup variable for fps */
 	Uint32 startTicks;
 
@@ -248,7 +248,7 @@ void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2
 }
 
 /* Handle function Set Icon */
-void FGameV2::SetIcon(std::string LocationIcon) {
+void FGameV2::SetIcon(const std::string LocationIcon) {
 	/* Setup variable for checking */
 	bool fileAlready = true;
 
@@ -287,7 +287,7 @@ void FGameV2::SetIcon(std::string LocationIcon) {
 }
 
 /* Handle function Set Size */
-void FGameV2::SetSize(float width, float height) {
+void FGameV2::SetSize(const float width, const float height) {
 	/* Check error before set size of the window */
 	if(!ErrorEvent) {
 		/* If not have error, Set size of the window */
@@ -301,7 +301,7 @@ void FGameV2::SetSize(float width, float height) {
 }
 
 /* Handle function set background */
-void FGameV2::SetBackground(FG_Color color) {
+void FGameV2::SetBackground(const FG_Color color) {
 	/* Check error before set size of the window */
 	if(!ErrorEvent) {
 		/* If not have error, Set background color of the window */
@@ -315,7 +315,7 @@ void FGameV2::SetBackground(FG_Color color) {
 }
 
 /* Handle function set position of window */
-void FGameV2::SetPosition(float x, float y) {
+void FGameV2::SetPosition(const float x, const float y) {
 	/* Check error before set position of the window */
 	if(!ErrorEvent) {
 		/* If not haveerror, Set position of the window */
@@ -329,13 +329,13 @@ void FGameV2::SetPosition(float x, float y) {
 }
 
 /* Handle function get event error */
-bool FGameV2::HaveError() {
+bool FGameV2::HaveError() const {
 	/* TODO: Just return variable event error */
 	return ErrorEvent;
 }
 
 /* Handle function get error message */
-std::string FGameV2::MessageError() {
+std::string FGameV2::MessageError() const {
 	/* TODO: Just return message eror */
 	return ErrorMessage;
 }

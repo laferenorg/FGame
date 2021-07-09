@@ -32,12 +32,14 @@ class FGAME_CALL FGDraw {
 	/* Public function using for future */
 	public:
 		/* Function for draw rectangle */
-		void Rect(FG_Color color, FG_Rect& rect, bool fill,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void Rect(const FG_Color color, const FG_Rect& rect, const bool fill,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* Function for draw line */
-		void Line(FG_Color color, float x1, float y1, float x2, float y2,
-			FGData_System& system, std::string& message_error, bool& errorEvent);
+		void Line(const FG_Color color, 
+			const float x1, const float y1, 
+			const float x2, const float y2,
+			const FGData_System& system, std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_DRAW_HEADER_ */

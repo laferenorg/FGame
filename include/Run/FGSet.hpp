@@ -33,10 +33,10 @@ class FGAME_CALL FGSet {
 	public:
 		/* This section for set rectangle */
 		/* This function for set size of rectangle */
-		void SetRectSize(FG_Rect& rect, float width, float height);
+		void SetRectSize(FG_Rect& rect, const float width, const float height);
 
 		/* This function for set position of rectangle */
-		void SetRectPosition(FG_Rect& rect, float x, float y);
+		void SetRectPosition(FG_Rect& rect, const float x, const float y);
 };
 
 #endif /* _FGAME_SET_HEADER_ */
