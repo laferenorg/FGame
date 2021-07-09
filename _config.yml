@@ -1,6 +1,6 @@
 title: FGame Version 2
 description: Game is a 2D game framework that keeps things simple. And it can be used on Linux and Windows platforms. And this requires SDL2 dependencies.
 logo: https://github.com/laferenorg/FGame/blob/version-2-development/icon.png?raw=true
-show_downloads: true
+show_downloads: false
 google_analytics: UA-201778945-1
 theme: jekyll-theme-minimal
