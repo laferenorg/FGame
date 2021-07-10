@@ -42,6 +42,19 @@ When you want to do a pull request, you have to make what you do.
 And you have to explain what you're doing, with examples of you improving something or adding a feature. 
 And can be sure that your code can be run in the target platform in this project.
 
+## Commit
+For a moment, if you have completed the target or problem, you will definitely commit your code. 
+Therefore you have to make the commit with the emoji in front of the dititle statement. 
+And you have to make whatever you do in the decryption field.
+
+### Emoji
+Like the statement above you have to create an emoji to tell what you're doing.
+And below to show you what emojis are used to tell the code what you're doing.
+- :lock: `:lock:` This shows the code that you commit to tighten the code
+- :bomb: `:bomb:` This shows the code that you commit to remove or delete the (code / directory)
+- :memo: `:memo:` It shows the code that you commit to notify there are changes or updates to the code
+- :shirt: `:shirt:` This shows the code that you committed to notify you of any additions or updates to the documentation
+
 ## Setup
 ### Setup in Visual Studio C++
 - #### Setup Include Directory
