@@ -43,6 +43,9 @@
 /* This class it's for get information on window */
 #include "Get/FGWindow.hpp"
 
+/* This class it's for get information on cursor */
+#include "Get/FGCursor.hpp"
+
 /* This class it's for using in future, like load image */
 #include "Run/FGImage.hpp"
 
@@ -60,6 +63,9 @@
 
 /* This class for helping in File Management */
 #include "Run/FGFile.hpp"
+
+/* This class for helping in Cursor */
+#include "Run/FGCursor.hpp"
 
 /* This class it's for using in future, like function delay */
 #include "Run/FGRun.hpp"

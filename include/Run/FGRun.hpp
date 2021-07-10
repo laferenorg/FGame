@@ -34,6 +34,7 @@
 #include "FGTTF.hpp"
 #include "FGNet.hpp"
 #include "FGFile.hpp"
+#include "FGCursor.hpp"
 
 class FGAME_CALL FGRun {
 	/* Public variable for helper in future */
@@ -58,6 +59,9 @@ class FGAME_CALL FGRun {
 
 		/* This variable for helping in file management */
 		FGFile File;
+
+		/* This variable for helping in cursor */
+		FGRunCursor Cursor;
 
 	/* Public function for using in future too */
 	public:

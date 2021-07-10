@@ -71,6 +71,7 @@ struct FGAME_CALL FGData_System {
 	SDL_Window   *window;
 	SDL_Renderer *render;
 	SDL_Event     event;
+	FG_Rect       cursor;
 };
 
 /* This structure for setup connection

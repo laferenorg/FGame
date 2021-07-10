@@ -28,6 +28,7 @@
 /* Include header in include directory from this project */
 #include "../FGBegin.hpp"
 #include "../FGStruct.hpp"
+#include "FGCursor.hpp"
 #include "FGWindow.hpp"
 
 class FGAME_CALL FGGet {
@@ -36,6 +37,9 @@ class FGAME_CALL FGGet {
 	public:
 		/* This variable for get information of window */
 		FGWindow Window;
+
+		/* This variable for get information of cursor */
+		FGGetCursor Cursor;
 
 	/* Public function for get information */
 	public:

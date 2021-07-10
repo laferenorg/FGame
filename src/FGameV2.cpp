@@ -77,6 +77,22 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, const std::string title,
 			case FG_INIT: {
 				/* If not have error */
 				if(!ErrorEvent) {
+					/* Setup rect cursor size of cursor */
+					System.cursor.width = 20;
+					System.cursor.height = 20;
+
+					/* Setup variable for temp 
+					 * position cursor 
+					 */
+					int xCursor, yCursor;
+
+					/* Get data of position cursor */
+					SDL_GetMouseState(&xCursor, &yCursor);
+
+					/* Now filled position of cursor */
+					System.cursor.x = xCursor - (System.cursor.width / 2);
+					System.cursor.y = yCursor - (System.cursor.height / 2);
+
 					/* Setup window variable */
 					System.window = SDL_CreateWindow(title.c_str(), 
 						SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
@@ -227,6 +243,18 @@ void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2
 			}
 			break;
 		}
+
+		/* Setup variable for temp 
+		 * position cursor 
+		 */
+		int xCursor, yCursor;
+
+		/* Get data of position cursor */
+		SDL_GetMouseState(&xCursor, &yCursor);
+
+		/* Now filled position of cursor */
+		System.cursor.x = xCursor - (System.cursor.width / 2);
+		System.cursor.y = yCursor - (System.cursor.height / 2);
 
 		/* Call back function handle event */
 		handleEvent(System.event, this);
