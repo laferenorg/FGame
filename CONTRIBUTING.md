@@ -51,9 +51,11 @@ And you have to make whatever you do in the decryption field.
 Like the statement above you have to create an emoji to tell what you're doing.
 And below to show you what emojis are used to tell the code what you're doing.
 - :lock: `:lock:` This shows the code that you commit to tighten the code
-- :bomb: `:bomb:` This shows the code that you commit to remove or delete the (code / directory)
+- :bomb: `:bomb:` This shows the code that you commit to remove or delete the (**code** / **directory**)
 - :memo: `:memo:` It shows the code that you commit to notify there are changes or updates to the code
 - :shirt: `:shirt:` This shows the code that you committed to notify you of any additions or updates to the documentation
+- :bug: `:bug:` This code tells you the commits that were made to let you know how to fix errors or bugs.
+- :bangbang: `:bangbang:` This code tells you the commits that were made to let you know what's missing.
 
 ## Setup
 ### Setup in Visual Studio C++
