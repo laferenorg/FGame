@@ -78,8 +78,8 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, const std::string title,
 				/* If not have error */
 				if(!ErrorEvent) {
 					/* Setup rect cursor size of cursor */
-					System.cursor.width = 20;
-					System.cursor.height = 20;
+					System.cursor.rect.width = 20;
+					System.cursor.rect.height = 20;
 
 					/* Setup variable for temp 
 					 * position cursor 
@@ -90,8 +90,8 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, const std::string title,
 					SDL_GetMouseState(&xCursor, &yCursor);
 
 					/* Now filled position of cursor */
-					System.cursor.x = xCursor - (System.cursor.width / 2);
-					System.cursor.y = yCursor - (System.cursor.height / 2);
+					System.cursor.rect.x = xCursor - (System.cursor.rect.width / 2);
+					System.cursor.rect.y = yCursor - (System.cursor.rect.height / 2);
 
 					/* Setup window variable */
 					System.window = SDL_CreateWindow(title.c_str(), 
@@ -253,8 +253,8 @@ void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2
 		SDL_GetMouseState(&xCursor, &yCursor);
 
 		/* Now filled position of cursor */
-		System.cursor.x = xCursor - (System.cursor.width / 2);
-		System.cursor.y = yCursor - (System.cursor.height / 2);
+		System.cursor.rect.x = xCursor - (System.cursor.rect.width / 2);
+		System.cursor.rect.y = yCursor - (System.cursor.rect.height / 2);
 
 		/* Call back function handle event */
 		handleEvent(System.event, this);
@@ -264,6 +264,13 @@ void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2
 
 		/* Call back update function */
 		update(this);
+
+		/* This section for set cursor */
+		if(System.cursor.setImage) {
+			/* Render cursor */
+			Run.Image.Render(System.cursor.image, System.cursor.rect, false,
+				System, ErrorMessage, ErrorEvent);
+		}
 
 		/* Call function from SDL2 for show or another name present */
 		SDL_RenderPresent(System.render);

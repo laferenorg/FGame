@@ -58,7 +58,7 @@ void FGImage::Load(FG_Image& destination_image, const std::string locationImage,
 	TempCheckFile.close();
 
 	/* If file defined */
-	if(fileAlready) {
+	if(fileAlready && !errorEvent) {
 		/* Setup data variable for image */
 		SDL_Surface* tempSurface = IMG_Load(locationImage.c_str());
 
@@ -67,6 +67,9 @@ void FGImage::Load(FG_Image& destination_image, const std::string locationImage,
 			tempSurface);
 		destination_image.width = tempSurface->w;
 		destination_image.height = tempSurface->h;
+
+		/* Free memory surface */
+		SDL_FreeSurface(tempSurface);
 	}
 }
 

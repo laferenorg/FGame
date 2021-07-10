@@ -57,16 +57,16 @@ bool FGGetCursor::Click(const FG_Rect& destination,
 			rect1.y = destination.y;
 
 			/* Position Rect2 */
-			rect2.x = system.cursor.x;
-			rect2.y = system.cursor.y;
+			rect2.x = system.cursor.rect.x;
+			rect2.y = system.cursor.rect.y;
 
 			/* Size Rect1 */
 			rect1.w = destination.width;
 			rect1.h = destination.height;
 
 			/* Size Rect2 */
-			rect2.w = system.cursor.width;
-			rect2.h = system.cursor.height;
+			rect2.w = system.cursor.rect.width;
+			rect2.h = system.cursor.rect.height;
 			
 			/* TODO: Just using function from SDL2 to check collider */
 			ResultClick = SDL_HasIntersection(&rect1, &rect2);
@@ -90,8 +90,8 @@ void FGGetCursor::Sizes(float& width, float& height,
 	} else {
 		/* If no have error */
 		/* Give data information size of cursor */
-		width = system.cursor.width;
-		height = system.cursor.height;
+		width = system.cursor.rect.width;
+		height = system.cursor.rect.height;
 	}
 }
 
@@ -108,7 +108,7 @@ void FGGetCursor::Position(float& x, float& y,
 	} else {
 		/* If no have error */
 		/* Give data information size of cursor */
-		x = system.cursor.x;
-		y = system.cursor.y;
+		x = system.cursor.rect.x;
+		y = system.cursor.rect.y;
 	}
 }

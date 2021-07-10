@@ -36,11 +36,19 @@ class FGAME_CALL FGRunCursor {
 	public:
 		/* This function it's for show cursor or not */
 		void Show(const bool show,
-			const FGData_System& system, std::string& message_error, bool& errorEvent);
+			FGData_System& system, std::string& message_error, bool& errorEvent);
 
 		/* This function for set size of cursor */
 		void Sizes(const float width, const float height,
-			FGData_System& system, std::string& message_error, bool& errorEvent);		
+			FGData_System& system, std::string& message_error, bool& errorEvent);
+	
+		/* This function for set cursor into image */
+		void Set(const std::string cursor_path,
+			FGData_System& system, std::string& message_error, bool& errorEvent);
+			
+		/* This function for set into normal from image */
+		void NormalFromImage(FGData_System& system, 
+			std::string& message_error, bool& errorEvent);
 };
 
 #endif /* _FGAME_RUN_CURSOR_HEADER_ */

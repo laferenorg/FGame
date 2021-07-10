@@ -42,7 +42,7 @@ struct FGAME_CALL FG_Rect {
  */
 struct FGAME_CALL FG_Image {
 	SDL_Texture* image;
-	float width, height;
+	float        width, height;
 };
 
 /* This structure for setup color for 
@@ -56,11 +56,21 @@ struct FGAME_CALL FG_Color {
  * this will be convert into the font
  */
 struct FGAME_CALL FG_TTF {
-	FG_Color color;
+	FG_Color    color;
 	std::string text;
 	std::string fontFamily;
-	float size = 0;
-	float width = 0, height = 0; 
+	float       size  = 0;
+	float       width = 0, height = 0; 
+};
+
+/* This structure for 
+ * setup data for Cursor 
+ */
+struct FG_Cursor {
+	bool     setImage = false;
+	bool     hidden   = false;
+	FG_Image image;
+	FG_Rect	 rect;
 };
 
 /* This structure for setup data for SDL2, 
@@ -71,7 +81,7 @@ struct FGAME_CALL FGData_System {
 	SDL_Window   *window;
 	SDL_Renderer *render;
 	SDL_Event     event;
-	FG_Rect       cursor;
+	FG_Cursor     cursor;
 };
 
 /* This structure for setup connection

@@ -15,8 +15,16 @@ void handleEventsAndExtendUpdate(SDL_Event& event, FGameV2* fgame) {
 	fgame->SetBackground({ 0, 255, 0 });
 
 	/* Event */
-	if(fgame->Get.Cursor.Click(rectangle, FG_THIS_POINTER(fgame))) {
+	bool OnClick = fgame->Get.Cursor.Click(rectangle, FG_THIS_POINTER(fgame));
+	if(OnClick) {
+		/* Set cursor */
+		fgame->Run.Cursor.Set("assets/Img/cursor/Select.png", FG_THIS_POINTER(fgame));
+
+		/* Set background */
 		fgame->SetBackground({ 255, 0, 0 });		
+	} else if(!OnClick) {
+		/* Set cursor */
+		fgame->Run.Cursor.Set("assets/Img/cursor/Arrow.png", FG_THIS_POINTER(fgame));
 	}
 }
 
@@ -24,16 +32,18 @@ void update(FGameV2* fgame) {
 	/* Render */
 	fgame->Run.Draw.Rect({ 255, 255, 255 }, rectangle, true,
 		FG_THIS_POINTER(fgame));
-	fgame->Run.Draw.Rect({ 241, 241, 241, 1 }, fgame->System.cursor, false,
-		FG_THIS_POINTER(fgame));
 }
 
 int main(int argc, const char* argv[]) {
 	/* Create manger */
-	FGameV2 Manager = FGameV2({ FG_INIT }, "Draw");
+	FGameV2 Manager = FGameV2({ FG_INIT, FG_IMAGE_INIT }, "Cursor");
 
 	/* Settings */
 	Manager.Run.Cursor.Show(false, FG_THIS_DEFAULT(Manager));
+
+	/* Set cursor */
+	Manager.Run.Cursor.Set("assets/Img/cursor/Arrow.png", FG_THIS_DEFAULT(Manager));
+	Manager.Run.Cursor.Sizes(50, 50, FG_THIS_DEFAULT(Manager));
 
 	/* Setup rect */
 	rectangle.x = 20;
