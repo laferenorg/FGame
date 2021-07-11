@@ -56,6 +56,7 @@ And below to show you what emojis are used to tell the code what you're doing.
 - :shirt: `:shirt:` This shows the code that you committed to notify you of any additions or updates to the documentation
 - :bug: `:bug:` This code tells you the commits that were made to let you know how to fix errors or bugs.
 - :bangbang: `:bangbang:` This code tells you the commits that were made to let you know what's missing.
+- :white_check_mark: `:white_check_mark:` This emoji is to indicate your commit to add a file or example
 
 ## Setup
 ### Setup in Visual Studio C++
