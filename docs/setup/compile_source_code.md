@@ -33,9 +33,18 @@ data to the website for visual studio installation [Visual Studio](https://visua
 And you have to install SDL2 libraries, such as for image, net, mixer, and ttf.
 I will provide the download link directly here.
 
-| SDL2                                                                | SDL2_mixer                                                                                  | SDL2_image                                                                                  | SDL2_ttf                                                                                 | SDL2_net                                                                                |
-|:--------------------------------------------------------------------|:--------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------|
-| [Downlaod](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip) | [Downlaod](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip) | [Downlaod](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip) | [Downlaod](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-VC.zip) | [Downlaod](https://www.libsdl.org/projects/SDL_net/release/SDL2_net-devel-2.0.1-VC.zip) |
+| SDL2                                                                | SDL2_mixer                                                                                  |
+|:--------------------------------------------------------------------|:--------------------------------------------------------------------------------------------|
+| [Downlaod](https://www.libsdl.org/release/SDL2-devel-2.0.14-VC.zip) | [Downlaod](https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.4-VC.zip) |
+
+
+| SDL2_image                                                                                  | SDL2_ttf                                                                                 |
+|:--------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|
+| [Downlaod](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip) | [Downlaod](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-VC.zip) |
+
+| SDL2_net                                                                                |
+|:----------------------------------------------------------------------------------------|
+| [Downlaod](https://www.libsdl.org/projects/SDL_net/release/SDL2_net-devel-2.0.1-VC.zip) |
 
 ### Compile
 This section is the point where the source code will be compiled, 
