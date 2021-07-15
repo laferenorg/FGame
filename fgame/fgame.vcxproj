@@ -192,10 +192,10 @@
   <ItemGroup>
     <ClCompile Include="..\src\Animation\FGAnimation.cpp" />
     <ClCompile Include="..\src\FGameV2.cpp" />
-    <ClCompile Include="..\src\Get\FGCursor.cpp" />
+    <ClCompile Include="..\src\Get\FGGetCursor.cpp" />
     <ClCompile Include="..\src\Get\FGGet.cpp" />
     <ClCompile Include="..\src\Get\FGWindow.cpp" />
-    <ClCompile Include="..\src\Run\FGCursor.cpp" />
+    <ClCompile Include="..\src\Run\FGRunCursor.cpp" />
     <ClCompile Include="..\src\Run\FGDraw.cpp" />
     <ClCompile Include="..\src\Run\FGFile.cpp" />
     <ClCompile Include="..\src\Run\FGImage.cpp" />

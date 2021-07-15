@@ -122,10 +122,10 @@
     <ClCompile Include="..\src\Animation\FGAnimation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Get\FGCursor.cpp">
+    <ClCompile Include="..\src\Get\FGGetCursor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Run\FGCursor.cpp">
+    <ClCompile Include="..\src\Run\FGRunCursor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
