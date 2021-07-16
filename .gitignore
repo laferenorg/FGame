@@ -1,0 +1,13 @@
+# IGnore file
+lib*
+cmake*
+cmake_install.cmake
+CMakeCache.txt
+libfgame.so.2.0.0
+libfgame.so
+Makefile
+
+# Ignore Folder
+build/
+CMakeFiles/
+temp/
