@@ -1,0 +1,13 @@
+# Auto detect text files and perform LF normalization
+*        text=auto
+
+# Always perform LF normalization on these files
+*.cpp    text
+*.c      text
+
+# Make sure that these files always have CRLF line endings in checkout
+*.draw   text eol=crlf
+
+# Never perform LF normalization on these files
+*.png    binary
+*.jpg    binary
