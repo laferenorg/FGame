@@ -4,9 +4,12 @@
 # Always perform LF normalization on these files
 *.cpp    text
 *.c      text
+*.draw   text
 
-# Make sure that these files always have CRLF line endings in checkout
-*.draw   text eol=crlf
+# Make sure that these windows files always have CRLF line endings in checkout
+*.sln             text eol=crlf
+*.vcxproj         text eol=crlf
+*.vcxproj.filters text eol=crlf
 
 # Never perform LF normalization on these files
 *.png    binary
