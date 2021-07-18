@@ -86,7 +86,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;WIN32;_DEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;FGAME_IMAGE;FGAME_MIXER;FGAME_NET;FGAME_FILES;FGAME_ALL;WIN32;_DEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -107,7 +107,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;WIN32;NDEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;FGAME_IMAGE;FGAME_MIXER;FGAME_NET;FGAME_FILES;FGAME_ALL;WIN32;NDEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -128,7 +128,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;_DEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;FGAME_IMAGE;FGAME_MIXER;FGAME_NET;FGAME_FILES;FGAME_ALL;_DEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -149,7 +149,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;NDEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SDL_MAIN_HANDLED;BUILD_LIBRARY_FGAME;USING_VISUAL_STUDIO;FGAME_IMAGE;FGAME_MIXER;FGAME_NET;FGAME_FILES;FGAME_ALL;NDEBUG;FGAME_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
