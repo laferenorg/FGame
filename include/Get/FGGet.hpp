@@ -39,7 +39,9 @@ class FGAME_CALL FGGet {
 		FGWindow Window;
 
 		/* This variable for get information of cursor */
-		FGGetCursor Cursor;
+		#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+			FGGetCursor Cursor;
+		#endif
 
 	/* Public function for get information */
 	public:

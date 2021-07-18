@@ -329,6 +329,7 @@ void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2
 }
 
 /* Handle function Set Icon */
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
 void FGameV2::SetIcon(const std::string LocationIcon) {
 	/* Setup variable for checking */
 	bool fileAlready = true;
@@ -366,6 +367,7 @@ void FGameV2::SetIcon(const std::string LocationIcon) {
 		}
 	}
 }
+#endif
 
 /* Handle function Set Size */
 void FGameV2::SetSize(const float width, const float height) {

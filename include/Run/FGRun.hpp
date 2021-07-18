@@ -71,7 +71,9 @@ class FGAME_CALL FGRun {
 		#endif
 
 		/* This variable for helping in cursor */
-		FGRunCursor Cursor;
+		#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+			FGRunCursor Cursor;
+		#endif
 
 	/* Public function for using in future too */
 	public:

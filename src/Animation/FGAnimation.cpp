@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* If this script using macro FGAME_IMAE */
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 #include <string>
@@ -364,3 +367,5 @@ void FGAnimation::RemoveAnimation(const unsigned int id_animation,
 		}
 	}
 }
+
+#endif

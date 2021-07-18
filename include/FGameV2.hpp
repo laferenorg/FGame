@@ -71,7 +71,9 @@ class FGAME_CALL FGameV2 {
 	/* Public function for settings */
 	public:
 		/* This function for set icon in window */
-		void SetIcon(const std::string LocationIcon);
+		#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+			void SetIcon(const std::string LocationIcon);
+		#endif
 
 		/* This function for set size of window */
 		void SetSize(const float width, const float height);
