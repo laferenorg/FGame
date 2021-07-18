@@ -81,3 +81,23 @@ And below to show you what emojis are used to tell the code what you're doing.
   And you should have the central SDL2 library, mixer, image, net, and ttf.
   You have to replace or use the structure I just said.
   <kbd><kbd>FGame -> Property -> Linker -> General</kbd> -> <kbd>Additional Library Directories</kbd></kbd>: Change `$(SolutionDir)SDL2\lib;`
+
+- #### Setup Support Dependencies
+  It is used to provide support for dependencies, that is, it is like giving the authority to use dependencies.
+  This example is macro `FGAME_IMAGE`, it will support dependencies image. So you can only use **SDL2** and **SDL2_image**.
+  There are several supports as below.
+  - ##### `FGAME_IMAGE`
+     it will support to **SDL2_image**.
+     So if you want to contribute that requires using an image you can use a preprocessor.
+  - ##### `FGAME_MIXER`
+     it will support to **SDL2_mixer**.
+     So if you want to contribute that requires using a sound you can use a preprocessor.
+  - ##### `FGAME_NET`
+     it will support to **SDL2_net**.
+     So if you want to contribute that requires using a networking you can use a preprocessor.
+  - ##### `FGAME_ALL`
+     it will support to ALL Dependencies.
+     So if you want to contribute that requires using an all dependencies you can use a preprocessor.
+  
+  If you want to change in the sense of reducing and increasing the preprocessor: 
+  <kbd><kbd>FGame -> Property -> C/C++ -> Preprocessor</kbd> -> <kbd>Preprocessor Definitions</kbd></kbd>
