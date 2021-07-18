@@ -24,7 +24,11 @@
 
 /* Include header library SDL2 */
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_net.h>
+
+/* Header SDL2 Net */
+#if defined(FGAME_NET) || defined(FGAME_ALL)
+	#include <SDL2/SDL_net.h>
+#endif
 
 /* Include header in include directory from this project */
 #include "FGBegin.hpp"
@@ -40,10 +44,12 @@ struct FGAME_CALL FG_Rect {
 /* This structure for setup image,
  * This using for image management
  */
-struct FGAME_CALL FG_Image {
-	SDL_Texture* image;
-	float        width, height;
-};
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+	struct FGAME_CALL FG_Image {
+		SDL_Texture* image;
+		float        width, height;
+	};
+#endif
 
 /* This structure for setup color for 
  * convert into SDL2 color variable
@@ -55,23 +61,27 @@ struct FGAME_CALL FG_Color {
 /* This structure for setup true type font
  * this will be convert into the font
  */
-struct FGAME_CALL FG_TTF {
-	FG_Color    color;
-	std::string text;
-	std::string fontFamily;
-	float       size  = 0;
-	float       width = 0, height = 0; 
-};
+#if defined(FGAME_TTF) || defined(FGAME_ALL)
+	struct FGAME_CALL FG_TTF {
+		FG_Color    color;
+		std::string text;
+		std::string fontFamily;
+		float       size  = 0;
+		float       width = 0, height = 0; 
+	};
+#endif
 
 /* This structure for 
  * setup data for Cursor 
  */
-struct FG_Cursor {
-	bool     setImage = false;
-	bool     hidden   = false;
-	FG_Image image;
-	FG_Rect	 rect;
-};
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+	struct FG_Cursor {
+		bool     setImage = false;
+		bool     hidden   = false;
+		FG_Image image;
+		FG_Rect	 rect;
+	};
+#endif
 
 /* This structure for setup data for SDL2, 
  * This using for setup or maybe management 
@@ -81,15 +91,20 @@ struct FGAME_CALL FGData_System {
 	SDL_Window   *window;
 	SDL_Renderer *render;
 	SDL_Event     event;
-	FG_Cursor     cursor;
+	/* This script will run if support image */
+	#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+		FG_Cursor     cursor;
+	#endif
 };
 
 /* This structure for setup connection
  * This using SDL2 net variable
  */
-struct FGAME_CALL FG_Net {
-	TCPsocket socket;
-	IPaddress ip;
-};
+#if defined(FGAME_NET) || defined(FGAME_ALL)
+	struct FGAME_CALL FG_Net {
+		TCPsocket socket;
+		IPaddress ip;
+	};
+#endif
 
 #endif /* _FGAME_STRUCTURE_HEADER_ */

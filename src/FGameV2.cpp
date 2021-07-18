@@ -30,11 +30,26 @@
 #include <ios>
 
 /* Include header SDL2 */
+/* Header SDL2 image */
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_net.h>
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+	#include <SDL2/SDL_image.h>
+#endif
+
+/* Header SDL2 mixer */
+#if defined(FGAME_MIXER) || defined(FGAME_ALL)
+	#include <SDL2/SDL_mixer.h>
+#endif
+
+/* Header SDL2 TTF */
+#if defined(FGAME_TTF) || defined(FGAME_ALL)
+	#include <SDL2/SDL_ttf.h>
+#endif
+
+/* Header SDL2 NET */
+#if defined(FGAME_NET) || defined(FGAME_ALL)
+	#include <SDL2/SDL_net.h>
+#endif
 
 /* Include header from include directory in this project */
 #include "FGameV2.hpp"
@@ -78,21 +93,23 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, const std::string title,
 				/* If not have error */
 				if(!ErrorEvent) {
 					/* Setup rect cursor size of cursor */
-					System.cursor.rect.width = 20;
-					System.cursor.rect.height = 20;
+					#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+						System.cursor.rect.width = 20;
+						System.cursor.rect.height = 20;
 
-					/* Setup variable for temp 
-					 * position cursor 
-					 */
-					int xCursor, yCursor;
+						/* Setup variable for temp 
+						 * position cursor 
+						 */
+						int xCursor, yCursor;
 
-					/* Get data of position cursor */
-					SDL_GetMouseState(&xCursor, &yCursor);
+						/* Get data of position cursor */
+						SDL_GetMouseState(&xCursor, &yCursor);
 
-					/* Now filled position of cursor */
-					System.cursor.rect.x = xCursor - (System.cursor.rect.width / 2);
-					System.cursor.rect.y = yCursor - (System.cursor.rect.height / 2);
-
+						/* Now filled position of cursor */
+						System.cursor.rect.x = xCursor - (System.cursor.rect.width / 2);
+						System.cursor.rect.y = yCursor - (System.cursor.rect.height / 2);
+					#endif
+					
 					/* Setup window variable */
 					System.window = SDL_CreateWindow(title.c_str(), 
 						SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
@@ -115,66 +132,79 @@ FGameV2::FGameV2(std::vector<unsigned int> flags, const std::string title,
 				}
 			}
 			break;
-			case FG_IMAGE_INIT: {
-				/* Setup variable and init */
-				int flagsInitImage = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF;
-				int initted = IMG_Init(flagsInitImage);
+			/* If compile using macro FGAME_IMAGE */
+			#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+				case FG_IMAGE_INIT: {
+					/* Setup variable and init */
+					int flagsInitImage = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF;
+					int initted = IMG_Init(flagsInitImage);
 
-				/* Check if image init have error */
-				if(!flagsInitImage) {
-					/* If have error set error into true */
-					ErrorEvent = true;
+					/* Check if image init have error */
+					if(!flagsInitImage) {
+						/* If have error set error into true */
+						ErrorEvent = true;
 
-					/* And write the message error */
-					ErrorMessage = "Can't init: Image, Init required JPG, PNG, TIF";
-					ErrorMessage += " " + ((std::string)IMG_GetError());
-					ErrorMessage += " | In function FGameV2::FGameV2";
+						/* And write the message error */
+						ErrorMessage = "Can't init: Image, Init required JPG, PNG, TIF";
+						ErrorMessage += " " + ((std::string)IMG_GetError());
+						ErrorMessage += " | In function FGameV2::FGameV2";
+					}
 				}
-			}
-			break;
-			case FG_MIXER_INIT: {
-				/* Setup mixer and check */
-				if(Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096) == -1) {
-					/* If have error set error into true */
-					ErrorEvent = true;
+				break;
+			#endif
+			/* If compile using macro FGAME_MIXER */
+			#if defined(FGAME_MIXER) || defined(FGAME_ALL)
+				case FG_MIXER_INIT: {
+					/* Setup mixer and check */
+					if(Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, \
+						2, 4096) == -1) {
+						/* If have error set error into true */
+						ErrorEvent = true;
 
-					/* And write the message error */
-					ErrorMessage = "Can't init: Mixer, ";
-					ErrorMessage += ((std::string)Mix_GetError());
-					ErrorMessage += " | In function FGameV2::FGameV2";
-				} else {
-					/* If no have error */
-					/* Amount of channels (Max amount of sounds playing at the same time) */
-					Mix_AllocateChannels(32);
+						/* And write the message error */
+						ErrorMessage = "Can't init: Mixer, ";
+						ErrorMessage += ((std::string)Mix_GetError());
+						ErrorMessage += " | In function FGameV2::FGameV2";
+					} else {
+						/* If no have error */
+						/* Amount of channels (Max amount of sounds playing at the same time) */
+						Mix_AllocateChannels(32);
+					}
 				}
-			}
-			break;
-			case FG_TTF_INIT: {
-				/* Init ttf library and check it's have error */
-				if(TTF_Init() == -1) {
-					/* If have error set error into true */
-					ErrorEvent = true;
+				break;
+			#endif
+			/* If compile using macro FGAME_TTF */
+			#if defined(FGAME_TTF) || defined(FGAME_ALL)
+				case FG_TTF_INIT: {
+					/* Init ttf library and check it's have error */
+					if(TTF_Init() == -1) {
+						/* If have error set error into true */
+						ErrorEvent = true;
 
-					/* And write the message error */
-					ErrorMessage = "Can't init: TTF, ";
-					ErrorMessage += ((std::string)TTF_GetError());
-					ErrorMessage += " | In function FGameV2::FGameV2";
+						/* And write the message error */
+						ErrorMessage = "Can't init: TTF, ";
+						ErrorMessage += ((std::string)TTF_GetError());
+						ErrorMessage += " | In function FGameV2::FGameV2";
+					}
 				}
-			}
-			break;
-			case FG_NET_INIT: {
-				/* Init net library and check it's have error */
-				if(SDLNet_Init() == -1) {
-					/* If have error set error into true */
-					ErrorEvent = true;
+				break;
+			#endif
+			/* If compile using macro FGAME_NET */
+			#if defined(FGAME_NET) || defined(FGAME_ALL)
+				case FG_NET_INIT: {
+					/* Init net library and check it's have error */
+					if(SDLNet_Init() == -1) {
+						/* If have error set error into true */
+						ErrorEvent = true;
 
-					/* And write the message error */
-					ErrorMessage = "Can't init: NET, ";
-					ErrorMessage += ((std::string)SDLNet_GetError());
-					ErrorMessage += " | In function FGameV2::FGameV2";
+						/* And write the message error */
+						ErrorMessage = "Can't init: NET, ";
+						ErrorMessage += ((std::string)SDLNet_GetError());
+						ErrorMessage += " | In function FGameV2::FGameV2";
+					}
 				}
-			}
-			break;
+				break;
+			#endif
 		}
 	}
 }
@@ -188,26 +218,38 @@ FGameV2::~FGameV2() {
 	/* Quit library */
 	for(int INIT = 0; INIT < ((int)what_init.size()); INIT++) {
 		switch(what_init[INIT]) {
-			case FG_MIXER_INIT: {
-				/* Quit mixer */
-				Mix_Quit();
-			}
-			break;
-			case FG_IMAGE_INIT: {
-				/* Quit image */
-				IMG_Quit();
-			}
-			break;
-			case FG_TTF_INIT: {
-				/* Quit TTF */
-				TTF_Quit();
-			}
-			break;
-			case FG_NET_INIT: {
-				/* Quit net */
-				SDLNet_Quit();
-			}
-			break;
+			/* If compile using macro FGAME_MIXER */
+			#if defined(FGAME_MIXER) || defined(FGAME_ALL)
+				case FG_MIXER_INIT: {
+					/* Quit mixer */
+					Mix_Quit();
+				}
+				break;
+			#endif
+			/* If compile using macro FGAME_IMAGE */
+			#if defined(FGAME_IMGE) || defined(FGAME_ALL)
+				case FG_IMAGE_INIT: {
+					/* Quit image */
+					IMG_Quit();
+				}
+				break;
+			#endif
+			/* If compile using macro FGAME_TTF */
+			#if defined(FGAME_TTF) || defined(FGAME_ALL)
+				case FG_TTF_INIT: {
+					/* Quit TTF */
+					TTF_Quit();
+				}
+				break;
+			#endif
+			/* If compile using macro FGAME_NET */
+			#if defined(FGAME_NET) || defined(FGAME_ALL)
+				case FG_NET_INIT: {
+					/* Quit net */
+					SDLNet_Quit();
+				}
+				break;
+			#endif
 		}
 	}
 
@@ -247,14 +289,16 @@ void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2
 		/* Setup variable for temp 
 		 * position cursor 
 		 */
-		int xCursor, yCursor;
+		#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+			int xCursor, yCursor;
 
-		/* Get data of position cursor */
-		SDL_GetMouseState(&xCursor, &yCursor);
+			/* Get data of position cursor */
+			SDL_GetMouseState(&xCursor, &yCursor);
 
-		/* Now filled position of cursor */
-		System.cursor.rect.x = xCursor - (System.cursor.rect.width / 2);
-		System.cursor.rect.y = yCursor - (System.cursor.rect.height / 2);
+			/* Now filled position of cursor */
+			System.cursor.rect.x = xCursor - (System.cursor.rect.width / 2);
+			System.cursor.rect.y = yCursor - (System.cursor.rect.height / 2);
+		#endif
 
 		/* Call back function handle event */
 		handleEvent(System.event, this);
@@ -266,11 +310,13 @@ void FGameV2::StartLooping(void(*handleEvent)(SDL_Event& event, FGameV2* fgameV2
 		update(this);
 
 		/* This section for set cursor */
-		if(System.cursor.setImage) {
-			/* Render cursor */
-			Run.Image.Render(System.cursor.image, System.cursor.rect, false,
-				System, ErrorMessage, ErrorEvent);
-		}
+		#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+			if(System.cursor.setImage) {
+				/* Render cursor */
+				Run.Image.Render(System.cursor.image, System.cursor.rect, false,
+					System, ErrorMessage, ErrorEvent);
+			}
+		#endif
 
 		/* Call function from SDL2 for show or another name present */
 		SDL_RenderPresent(System.render);

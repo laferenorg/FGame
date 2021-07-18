@@ -19,7 +19,8 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN C
  */
-#ifndef _FGAME_FILE_HEADER_
+#if !defined(_FGAME_FILE_HEADER_) && \
+	(defined(FGAME_FILES) || defined(FGAME_ALL))
 #define _FGAME_FILE_HEADER_
 
 /* Include header C++ */

@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* This script will run if support net */
+#if defined(FGAME_NET) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 #include <vector>
@@ -153,3 +156,5 @@ void FGNet::close(FG_Net& net, const void* data_send, const unsigned int data_le
 		SDLNet_TCP_Close(net.socket);
 	}
 }
+
+#endif

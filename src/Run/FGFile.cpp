@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* This script will run if support filesystem */
+#if defined(FGAME_FILES) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 #include <string>
@@ -180,3 +183,5 @@ std::vector<std::string> FGFile::List(const std::string path,
 	/* Return result */
 	return ListOfFile;
 }
+
+#endif

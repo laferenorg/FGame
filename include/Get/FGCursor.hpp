@@ -19,7 +19,8 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN C
  */
-#ifndef _FGAME_GET_CURSOR_HEADER_
+#if !defined(_FGAME_GET_CURSOR_HEADER_) && \
+	(defined(FGAME_IMAGE) || defined(FGAME_ALL))
 #define _FGAME_GET_CURSOR_HEADER_
 
 /* Include header library SDL2 */

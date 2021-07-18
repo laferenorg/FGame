@@ -40,7 +40,9 @@ class FGAME_CALL FGRun {
 	/* Public variable for helper in future */
 	public:
 		/* This variable helper in image */
-		FGImage Image;
+		#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+			FGImage Image;
+		#endif
 
 		/* This variable helper in rectangle */
 		FGSet Set;
@@ -49,16 +51,24 @@ class FGAME_CALL FGRun {
 		FGDraw Draw;
 
 		/* This variable helping for manage sound */
-		FGSound Sound;
+		#if defined(FGAME_MIXER) || defined(FGAME_ALL)
+			FGSound Sound;
+		#endif
 
 		/* This variable for helping in true type font or TTF */
-		FGTTF TTF;
+		#if defined(FGAME_TTF) || defined(FGAME_ALL)
+			FGTTF TTF;
+		#endif
 
 		/* This variable for helping in connection */
-		FGNet Net;
+		#if defined(FGAME_NET) || defined(FGAME_ALL)
+			FGNet Net;
+		#endif
 
 		/* This variable for helping in file management */
-		FGFile File;
+		#if defined(FGAME_FILES) || defined(FGAME_ALL)
+			FGFile File;
+		#endif
 
 		/* This variable for helping in cursor */
 		FGRunCursor Cursor;

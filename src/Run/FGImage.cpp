@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* This script will run if support image */
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 #include <string>
@@ -103,3 +106,4 @@ void FGImage::Render(const FG_Image& source_image, const FG_Rect& rectSprite,
 			NULL, &rectangleVariable, 0, NULL, flipImage);
 	}
 }
+#endif

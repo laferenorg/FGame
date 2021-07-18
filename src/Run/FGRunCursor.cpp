@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* This script will run if support image */
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 #include <string>
@@ -153,3 +156,5 @@ void FGRunCursor::NormalFromImage(FGData_System& system,
 		SDL_ShowCursor(system.cursor.hidden ? SDL_DISABLE : SDL_ENABLE);
 	}
 }
+
+#endif

@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* This script will run if support sound */
+#if defined(FGAME_MIXER) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 #include <fstream>
@@ -141,3 +144,5 @@ FGMusic* FGSound::music(const std::string path, const int volume,
 	return new FGMusic(path, (volume > 128) ? 128 : volume, 
 		system, message_error, errorEvent);
 }
+
+#endif

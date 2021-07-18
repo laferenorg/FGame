@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* This script will run if support ttf */
+#if defined(FGAME_TTF) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 #include <string>
@@ -148,3 +151,5 @@ void FGTTF::render(const FG_TTF& font, const FG_Rect& rect,
 		}
 	}
 }
+
+#endif

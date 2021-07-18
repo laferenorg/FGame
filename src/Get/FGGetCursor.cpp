@@ -23,6 +23,9 @@
 /* Include pre compile header */
 #include "pch.h"
 
+/* This script will run if support image */
+#if defined(FGAME_IMAGE) || defined(FGAME_ALL)
+
 /* Include header C++ */
 #include <iostream>
 
@@ -112,3 +115,5 @@ void FGGetCursor::Position(float& x, float& y,
 		y = system.cursor.rect.y;
 	}
 }
+
+#endif
