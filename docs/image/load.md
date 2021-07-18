@@ -26,6 +26,10 @@ Once you have it loaded you can take the width and height of the image.
   #include <string>
 
   /* Include header FGame */
+  #ifndef FGAME_IMAGE
+    #define FGAME_IMAGE
+  #endif
+
   #include <FGame.hpp>
 
   int main(int argc, const char* argv[]) {

@@ -25,6 +25,9 @@ This macro is adjusted by the main controller in the form of a pointer or or a r
   #include <string>
 
   /* Include header FGame */
+  #ifndef FGAME_IMAGE
+    #define FGAME_IMAGE
+  #endif
   #include <FGame.hpp>
 
   /* Setup variable image into global */
